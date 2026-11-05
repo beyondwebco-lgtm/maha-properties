@@ -13,15 +13,45 @@ import {
   Compass,
 } from "lucide-react";
 
-export const metadata = {
-  title: "About Us & TSRERA Agent Registration",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | TSRERA Agent Reg A02500004914 | MAHA Properties",
   description:
-    "Learn about MAHA Properties, real estate consultancy based in Kukatpally, Hyderabad. Registered with Telangana RERA (Reg. No. A02500004914).",
+    "Learn about MAHA Properties, Kukatpally, Hyderabad. Registered with Telangana RERA Agent No. A02500004914. Ethical property advisory.",
+  alternates: {
+    canonical: "https://mahaproperties.in/about",
+  },
+  openGraph: {
+    title: "About Us | MAHA Properties Hyderabad",
+    description:
+      "Professional real estate consultancy in Kukatpally, Hyderabad. TSRERA Registered Agent Reg No. A02500004914.",
+    url: "https://mahaproperties.in/about",
+    images: [{ url: "/properties/chandanagar/project-img-6.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About MAHA Properties Hyderabad",
+    description: "TSRERA Registered Real Estate Consultancy (Reg No: A02500004914).",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mahaproperties.in" },
+    { "@type": "ListItem", position: 2, name: "About Us", item: "https://mahaproperties.in/about" },
+  ],
 };
 
 export default function AboutPage() {
   return (
     <div className="bg-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Banner */}
       <section className="bg-[#141414] text-white py-16 sm:py-20 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -37,12 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const propertyRoutes: MetadataRoute.Sitemap = propertiesData.map((prop) => ({
-    url: `${baseUrl}/properties/${prop.slug}`,
-    lastModified: new Date(prop.createdAt),
-    changeFrequency: "weekly",
-    priority: prop.featured ? 0.95 : 0.7,
-  }));
+  const propertyRoutes: MetadataRoute.Sitemap = propertiesData
+    .filter((prop) => prop.published)
+    .map((prop) => ({
+      url: `${baseUrl}/properties/${prop.slug}`,
+      lastModified: new Date(prop.createdAt),
+      changeFrequency: "weekly",
+      priority: prop.featured ? 0.95 : 0.8,
+    }));
 
   return [...staticRoutes, ...propertyRoutes];
 }

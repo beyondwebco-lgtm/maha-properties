@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { companyData } from "../data/company";
 import { getFeaturedProperties, getAllProperties } from "../data/properties";
+import { getBlurDataUrl } from "../data/blur-data";
 import { PropertyCard } from "../components/property-card";
 import {
   Phone,
@@ -30,11 +31,13 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/properties/chandanagar/project-img-1.jpg"
-            alt="Premium Hyderabad Residences"
+            alt="Find Luxury Properties in Hyderabad - Villas, Apartments, Plots & Lands with MAHA Properties"
             fill
             priority
+            placeholder="blur"
+            blurDataURL={getBlurDataUrl("/properties/chandanagar/project-img-1.jpg")}
             sizes="100vw"
-            className="object-cover object-center scale-105 animate-pulse duration-[10000ms]"
+            className="object-cover object-center scale-105"
           />
           {/* Deep tasteful dark gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/60" />
@@ -117,8 +120,12 @@ export default function HomePage() {
                 <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
                   <Image
                     src="/properties/chandanagar/project-img-4.jpg"
-                    alt="Chandanagar Gated Community"
+                    alt="Chandanagar Gated Community Near Gangaram Lake Hyderabad"
                     fill
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={getBlurDataUrl("/properties/chandanagar/project-img-4.jpg")}
+                    sizes="(max-width: 1024px) 100vw, 360px"
                     className="object-cover"
                   />
                 </div>
@@ -267,7 +274,7 @@ export default function HomePage() {
       </section>
 
       {/* 4. PROPERTY CATEGORIES */}
-      <section className="py-20 bg-[#F8F6F0]">
+      <section className="py-20 bg-[#F8F6F0] content-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
@@ -292,9 +299,12 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
                   <Image
                     src={cat.image}
-                    alt={cat.name}
+                    alt={`${cat.name} Portfolio in Hyderabad - MAHA Properties`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 300px"
+                    loading="lazy"
+                    placeholder={cat.image.startsWith("/properties") ? "blur" : undefined}
+                    blurDataURL={cat.image.startsWith("/properties") ? getBlurDataUrl(cat.image) : undefined}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -320,7 +330,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. ABOUT MAHA PROPERTIES & TSRERA REGISTRATION */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white content-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Image Showcase */}
@@ -328,8 +338,12 @@ export default function HomePage() {
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gray-100">
                 <Image
                   src="/properties/chandanagar/project-img-6.jpg"
-                  alt="MAHA Properties Consulting Hyderabad"
+                  alt="MAHA Properties Real Estate Consultancy Office Kukatpally Hyderabad"
                   fill
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={getBlurDataUrl("/properties/chandanagar/project-img-6.jpg")}
+                  sizes="(max-width: 1024px) 100vw, 480px"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -410,7 +424,7 @@ export default function HomePage() {
       </section>
 
       {/* 6. WHY CHOOSE MAHA PROPERTIES */}
-      <section className="py-20 bg-[#F8F6F0]">
+      <section className="py-20 bg-[#F8F6F0] content-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
@@ -481,7 +495,7 @@ export default function HomePage() {
       </section>
 
       {/* 7. CONTACT CTA BANNER */}
-      <section className="py-16 bg-[#141414] text-white">
+      <section className="py-16 bg-[#141414] text-white content-auto">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
             Get In Touch

@@ -11,10 +11,36 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-export const metadata = {
-  title: "Contact MAHA Properties | Kukatpally, Hyderabad",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact MAHA Properties Kukatpally Hyderabad",
   description:
-    "Contact N. Surendra at MAHA Properties, Kukatpally, Hyderabad. Phone: +91 7799884849, +91 9030493397. TSRERA Registered Agent A02500004914.",
+    "Reach N. Surendra at MAHA Properties, Kukatpally, Hyderabad. Phone: +91 7799884849. TSRERA Agent Reg A02500004914. Free consultation.",
+  alternates: {
+    canonical: "https://mahaproperties.in/contact",
+  },
+  openGraph: {
+    title: "Contact MAHA Properties Kukatpally Hyderabad",
+    description:
+      "Consultation with N. Surendra at MAHA Properties. Phone: +91 7799884849. TSRERA Agent Reg A02500004914.",
+    url: "https://mahaproperties.in/contact",
+    images: [{ url: "/images/maha-logo-dark.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact MAHA Properties Kukatpally Hyderabad",
+    description: "TSRERA Registered Agent A02500004914. Phone: +91 7799884849.",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mahaproperties.in" },
+    { "@type": "ListItem", position: 2, name: "Contact", item: "https://mahaproperties.in/contact" },
+  ],
 };
 
 export default function ContactPage() {
@@ -24,6 +50,10 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Header */}
       <section className="bg-[#141414] text-white py-16 sm:py-20 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

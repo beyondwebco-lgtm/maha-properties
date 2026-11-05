@@ -14,10 +14,36 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-export const metadata = {
-  title: "Real Estate Services | Villas, Apartments, Plots & Lands",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Real Estate Services Hyderabad | MAHA Properties",
   description:
-    "Comprehensive real estate consultancy in Hyderabad. Expert guidance for luxury villas, gated apartments, open residential plots, and strategic land investments.",
+    "Expert consultancy for luxury villas, gated apartments, open plots, and land investments in Hyderabad. TSRERA Agent Reg A02500004914.",
+  alternates: {
+    canonical: "https://mahaproperties.in/services",
+  },
+  openGraph: {
+    title: "Real Estate Services Hyderabad | MAHA Properties",
+    description:
+      "Consultancy for villas, apartments, plots, and land parcels across Hyderabad. TSRERA Agent Reg A02500004914.",
+    url: "https://mahaproperties.in/services",
+    images: [{ url: "/properties/chandanagar/project-img-1.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Real Estate Services Hyderabad | MAHA Properties",
+    description: "Expert consultancy for villas, apartments, plots, and land in Hyderabad.",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mahaproperties.in" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://mahaproperties.in/services" },
+  ],
 };
 
 export default function ServicesPage() {
@@ -86,6 +112,10 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Header Banner */}
       <section className="bg-[#141414] text-white py-16 sm:py-20 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
