@@ -2,13 +2,12 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { getPropertyBySlug, getAllProperties } from "../../../data/properties";
 import { companyData } from "../../../data/company";
+import { getBlurDataUrl } from "../../../data/blur-data";
 import { ImageGallery } from "../../../components/image-gallery";
-import { PriceCalculator } from "../../../components/price-calculator";
-import { EnquiryForm } from "../../../components/enquiry-form";
-import { MobileStickyBar } from "../../../components/mobile-sticky-bar";
 import { PropertyCard } from "../../../components/property-card";
 import {
   MapPin,
@@ -42,6 +41,33 @@ import {
   ChevronRight,
   Info,
 } from "lucide-react";
+
+// Code-split client-only interactive components with zero-CLS skeleton placeholders
+const PriceCalculator = dynamic(
+  () => import("../../../components/price-calculator").then((m) => m.PriceCalculator),
+  {
+    loading: () => (
+      <div className="bg-white rounded-3xl p-8 border border-gray-200 animate-pulse min-h-[460px] flex items-center justify-center text-xs text-gray-400">
+        Loading interactive price estimator...
+      </div>
+    ),
+  }
+);
+
+const EnquiryForm = dynamic(
+  () => import("../../../components/enquiry-form").then((m) => m.EnquiryForm),
+  {
+    loading: () => (
+      <div className="bg-white rounded-3xl p-8 border border-gray-200 animate-pulse min-h-[480px] flex items-center justify-center text-xs text-gray-400">
+        Loading enquiry form...
+      </div>
+    ),
+  }
+);
+
+const MobileStickyBar = dynamic(
+  () => import("../../../components/mobile-sticky-bar").then((m) => m.MobileStickyBar)
+);
 
 // Lucide icon helper
 const iconMap: Record<string, React.ReactNode> = {
@@ -88,27 +114,52 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  let title = `${property.title.slice(0, 40)} | MAHA Properties`;
+  let description = `${property.description.slice(0, 150)}...`;
+
   if (slug === "premium-gated-community-chandanagar") {
-    return {
-      title: "2 & 3 BHK Flats in Chandanagar Near Gangaram Lake | MAHA Properties",
-      description:
-        "Explore ready-to-move 2 & 3 BHK apartments in a premium gated community near Gangaram Lake, Chandanagar. View sizes, amenities and pricing with MAHA Properties.",
-      openGraph: {
-        title: "2 & 3 BHK Flats in Chandanagar Near Gangaram Lake | MAHA Properties",
-        description:
-          "Explore ready-to-move 2 & 3 BHK apartments in a premium gated community near Gangaram Lake, Chandanagar. View sizes, amenities and pricing with MAHA Properties.",
-        images: [property.images[0]?.src || "/properties/chandanagar/project-img-1.jpg"],
-      },
-    };
+    title = "2 & 3 BHK Flats in Chandanagar | MAHA Properties";
+    description =
+      "Ready-to-move 2 & 3 BHK flats near Gangaram Lake, Chandanagar, Hyderabad. View verified pricing, floor plans & amenities with MAHA Properties.";
+  } else if (slug === "brigade-gateway-neopolis") {
+    title = "Brigade Gateway Neopolis Hyderabad | MAHA Properties";
+    description =
+      "Iconic 3 & 4 Bed flats & Sky Duplexes at Brigade Gateway, Neopolis Kokapet. TG RERA P02400009142. Festive benefits with MAHA Properties.";
+  } else if (slug === "brigade-barcelona-neopolis") {
+    title = "Brigade Barcelona Neopolis | MAHA Properties";
+    description =
+      "Spanish-inspired luxury 3 & 4 Bed homes by Ricardo Bofill in Neopolis, Hyderabad. 270° panoramic decks. Enquire with MAHA Properties.";
   }
 
+  const ogImage = property.images[0]?.src || "/properties/chandanagar/project-img-1.jpg";
+
   return {
-    title: `${property.title} | MAHA Properties Hyderabad`,
-    description: property.description.slice(0, 160),
+    title,
+    description,
+    alternates: {
+      canonical: `https://mahaproperties.in/properties/${property.slug}`,
+    },
     openGraph: {
-      title: property.title,
-      description: property.description.slice(0, 160),
-      images: [property.images[0]?.src || ""],
+      title,
+      description,
+      url: `https://mahaproperties.in/properties/${property.slug}`,
+      siteName: "MAHA PROPERTIES",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      locale: "en_IN",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -126,12 +177,89 @@ export default async function PropertyDetailPage({ params }: Props) {
     .filter((p) => p.slug !== property.slug && p.type === property.type)
     .slice(0, 3);
 
-  const whatsappInquiryText = `Hello MAHA Properties, I'm interested in the ${property.title} project at Chandanagar near Gangaram Lake. Please share availability, floor plans, and the latest pricing.`;
+  const whatsappInquiryText = `Hello MAHA Properties, I'm interested in the ${property.title} project at ${property.location}. Please share availability, floor plans, and the latest pricing.`;
+  const heroImage = property.images[0]?.src || "/properties/chandanagar/project-img-1.jpg";
+
+  // Structured Data (JSON-LD) for Real Estate Listing & Breadcrumbs
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://mahaproperties.in",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Properties",
+        item: "https://mahaproperties.in/properties",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: property.title,
+        item: `https://mahaproperties.in/properties/${property.slug}`,
+      },
+    ],
+  };
+
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "ApartmentComplex",
+    name: property.title,
+    description: property.description,
+    url: `https://mahaproperties.in/properties/${property.slug}`,
+    image: property.images.map((img) =>
+      img.src.startsWith("http") ? img.src : `https://mahaproperties.in${img.src}`
+    ),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: property.address,
+      addressLocality: property.location.split(",")[0].trim(),
+      addressRegion: "Telangana",
+      postalCode: "500072",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: property.slug.includes("neopolis") ? 17.4018 : 17.4934,
+      longitude: property.slug.includes("neopolis") ? 78.3155 : 78.3392,
+    },
+    ...(property.approvalInfo.reraNumber
+      ? { identifier: property.approvalInfo.reraNumber }
+      : {}),
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "INR",
+      lowPrice: property.startingPrice,
+      price: property.startingPrice,
+      availability: "https://schema.org/InStock",
+      validFrom: property.createdAt,
+    },
+    amenityFeature: property.amenities.map((a) => ({
+      "@type": "LocationFeatureSpecification",
+      name: a.name,
+      value: true,
+    })),
+  };
 
   return (
-    <div className="bg-white min-h-screen pb-16">
+    <div className="bg-white min-h-screen pb-28 md:pb-16">
+      {/* JSON-LD Rich Results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
+
       {/* Breadcrumb Bar */}
-      <div className="bg-gray-50 border-b border-gray-200/80 py-3 text-xs text-gray-500">
+      <nav aria-label="Breadcrumb" className="bg-gray-50 border-b border-gray-200/80 py-3 text-xs text-gray-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-1.5 flex-wrap">
           <Link href="/" className="hover:text-black">
             Home
@@ -152,17 +280,20 @@ export default async function PropertyDetailPage({ params }: Props) {
             {property.title}
           </span>
         </div>
-      </div>
+      </nav>
 
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[500px] lg:min-h-[580px] flex items-end bg-gray-900 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={property.images[0]?.src || "/properties/chandanagar/project-img-1.jpg"}
-            alt={property.title}
+            src={heroImage}
+            alt={`${property.title} - ${property.typeLabel} in ${property.location}`}
             fill
             priority
+            placeholder="blur"
+            blurDataURL={getBlurDataUrl(heroImage)}
+            sizes="100vw"
             className="object-cover"
           />
           {/* Deep dark gradient overlay */}

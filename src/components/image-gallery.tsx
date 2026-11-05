@@ -2,7 +2,13 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import dynamic from "next/dynamic";
+import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { getBlurDataUrl } from "../data/blur-data";
+
+const LightboxModal = dynamic(() => import("./lightbox-modal"), {
+  ssr: false,
+});
 
 interface GalleryImage {
   src: string;
@@ -23,6 +29,8 @@ export function ImageGallery({ images }: ImageGalleryProps) {
   }
 
   const currentImage = images[selectedIndex];
+  const nextIndex = (selectedIndex + 1) % images.length;
+  const nextImage = images[nextIndex];
 
   const handlePrev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -45,10 +53,25 @@ export function ImageGallery({ images }: ImageGalleryProps) {
           src={currentImage.src}
           alt={currentImage.alt}
           fill
-          priority
-          sizes="(max-width: 768px) 100vw, 1200px"
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL={getBlurDataUrl(currentImage.src)}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 840px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
+
+        {/* Hidden next slide image to warm up cache seamlessly */}
+        {images.length > 1 && (
+          <div className="hidden" aria-hidden="true">
+            <Image
+              src={nextImage.src}
+              alt=""
+              width={10}
+              height={10}
+              loading="lazy"
+            />
+          </div>
+        )}
 
         {/* Gradient Overlay for Caption */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none" />
@@ -74,7 +97,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
             <button
               onClick={handlePrev}
               type="button"
-              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all opacity-80 hover:opacity-100"
+              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all opacity-80 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               aria-label="Previous image"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -82,7 +105,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
             <button
               onClick={handleNext}
               type="button"
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all opacity-80 hover:opacity-100"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all opacity-80 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               aria-label="Next image"
             >
               <ChevronRight className="w-5 h-5" />
@@ -106,11 +129,15 @@ export function ImageGallery({ images }: ImageGalleryProps) {
                     ? "border-[#D4AF37] ring-2 ring-[#D4AF37]/50 scale-[1.02]"
                     : "border-transparent opacity-70 hover:opacity-100"
                 }`}
+                aria-label={`View photo ${index + 1}`}
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
                   fill
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={getBlurDataUrl(img.src)}
                   sizes="120px"
                   className="object-cover"
                 />
@@ -120,67 +147,16 @@ export function ImageGallery({ images }: ImageGalleryProps) {
         </div>
       )}
 
-      {/* Full-screen Lightbox Modal */}
+      {/* Dynamic Lightbox Modal */}
       {isLightboxOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setIsLightboxOpen(false)}
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
-        >
-          {/* Close button */}
-          <button
-            onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-5 right-5 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Close modal"
-          >
-            <X className="w-6 h-6" />
-          </button>
-
-          {/* Large image */}
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-5xl max-h-[85vh] w-full h-full flex flex-col items-center justify-center"
-          >
-            <div className="relative w-full h-[75vh]">
-              <Image
-                src={currentImage.src}
-                alt={currentImage.alt}
-                fill
-                sizes="100vw"
-                className="object-contain"
-              />
-            </div>
-            <div className="mt-4 text-center text-white">
-              <p className="text-sm font-medium">{currentImage.caption || currentImage.alt}</p>
-              <p className="text-xs text-gray-400 mt-1 font-mono">
-                Image {selectedIndex + 1} of {images.length}
-              </p>
-            </div>
-
-            {/* Prev/Next buttons inside Lightbox */}
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={handlePrev}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/30 text-white transition-colors"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/30 text-white transition-colors"
-                  aria-label="Next image"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
-              </>
-            )}
-          </div>
-        </div>
+        <LightboxModal
+          images={images}
+          selectedIndex={selectedIndex}
+          onClose={() => setIsLightboxOpen(false)}
+          onPrev={() => handlePrev()}
+          onNext={() => handleNext()}
+        />
       )}
     </div>
   );
 }
-

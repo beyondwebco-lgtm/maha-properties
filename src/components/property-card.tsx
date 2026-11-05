@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Property } from "../types/property";
+import { getBlurDataUrl } from "../data/blur-data";
 import { MapPin, Home, ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
 
 interface PropertyCardProps {
@@ -11,6 +12,7 @@ interface PropertyCardProps {
 
 export function PropertyCard({ property }: PropertyCardProps) {
   const mainImage = property.images[0]?.src || "/properties/chandanagar/project-img-1.jpg";
+  const blurUrl = getBlurDataUrl(mainImage);
 
   return (
     <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -18,9 +20,12 @@ export function PropertyCard({ property }: PropertyCardProps) {
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
         <Image
           src={mainImage}
-          alt={property.title}
+          alt={`${property.title} - ${property.typeLabel} in ${property.location}`}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL={blurUrl}
+          sizes="(max-width: 640px) 94vw, (max-width: 1024px) 48vw, 380px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         

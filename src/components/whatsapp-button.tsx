@@ -17,7 +17,7 @@ export function WhatsAppButton({ customMessage }: WhatsAppButtonProps) {
   const waUrl = `https://wa.me/${companyData.whatsappNumber}?text=${message}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+    <div className="fixed bottom-20 md:bottom-6 right-6 z-40 flex items-center gap-3">
       {/* Tooltip speech bubble */}
       {showTooltip && (
         <div className="hidden sm:flex items-center gap-2 bg-white text-gray-800 text-xs py-2 px-3.5 rounded-2xl shadow-xl border border-gray-200 animate-fadeIn">

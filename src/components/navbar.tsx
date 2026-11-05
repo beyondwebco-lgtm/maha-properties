@@ -79,8 +79,8 @@ export function Navbar() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Chat on WhatsApp"
-              className="p-2 rounded-full text-green-700 bg-green-50 hover:bg-green-100 transition-colors border border-green-200"
+              aria-label="Chat with MAHA Properties on WhatsApp"
+              className="flex items-center justify-center w-10 h-10 rounded-full text-green-700 bg-green-50 hover:bg-green-100 transition-colors border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-400"
             >
               <MessageCircle className="w-4 h-4" />
             </a>
@@ -88,7 +88,8 @@ export function Navbar() {
             {/* Call Now Button */}
             <a
               href={`tel:${companyData.primaryPhone}`}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#141414] hover:bg-black text-white text-xs font-semibold tracking-wide uppercase transition-all shadow-sm hover:shadow hover:scale-[1.02]"
+              aria-label={`Call MAHA Properties at ${companyData.primaryPhoneFormatted}`}
+              className="inline-flex items-center gap-2 px-4 py-2.5 min-h-[40px] rounded-full bg-[#141414] hover:bg-black text-white text-xs font-semibold tracking-wide uppercase transition-all shadow-sm hover:shadow hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
               <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Call Now</span>
@@ -100,13 +101,13 @@ export function Navbar() {
             <a
               href={`tel:${companyData.primaryPhone}`}
               aria-label="Call MAHA Properties"
-              className="p-2 rounded-full bg-[#141414] text-white"
+              className="flex items-center justify-center w-11 h-11 rounded-full bg-[#141414] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
               <Phone className="w-4 h-4 text-[#D4AF37]" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-gray-700 hover:text-black hover:bg-gray-100"
+              className="flex items-center justify-center w-11 h-11 rounded-xl text-gray-700 hover:text-black hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? (
