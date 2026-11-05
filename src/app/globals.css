@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --color-charcoal: #141414;
   --color-charcoal-light: #222222;
   --color-charcoal-card: #1c1c1c;
@@ -21,7 +23,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -46,6 +48,36 @@ html {
   border-image: linear-gradient(135deg, #F5DF88, #D4AF37, #9E7811) 1;
 }
 
+/* Performance: content-visibility for below-the-fold sections */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 650px;
+}
+
+/* Accessibility: focus outlines */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* Accessibility & Performance: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Hide scrollbar for gallery horizontal swiping */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -54,4 +86,3 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
