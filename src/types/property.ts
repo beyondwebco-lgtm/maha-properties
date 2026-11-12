@@ -1,15 +1,16 @@
-export type PropertyType = "villas" | "apartments" | "open-plots" | "lands";
-export type PropertyStatus = "Ready to Move" | "Under Construction" | "Available" | "Sold Out" | "Upcoming";
+export type PropertyType = "apartments" | "villas";
+export type PropertyStatus = "Ready to Move" | "Under Construction" | "Available" | "New Launch";
 
 export interface PropertyConfiguration {
   id: string;
   name: string;
-  type: string;
-  sizeSqFt: number;
-  facing: string[];
-  basePricePerSqFt: number;
-  basePriceTotal: number;
-  amenitiesCharges: number;
+  type: string; // e.g., "2 BHK", "3 BHK", "4 BHK", "5 & 6 BHK Sky Duplex"
+  sizeSqFt?: number; // Only set when verified
+  sizeLabel?: string; // e.g., "1,270 sq.ft" or "2,409 sq.ft Built-up (150–200 Sq. Yds. Plot)"
+  facing?: string[];
+  basePricePerSqFt?: number;
+  basePriceTotal?: number;
+  amenitiesCharges?: number;
   description?: string;
   floorPlanImage?: string;
 }
@@ -30,39 +31,53 @@ export interface PricingRules {
   bankLoanPercent: number;
 }
 
+export interface PropertyImage {
+  src: string;
+  alt: string;
+  caption?: string;
+  category?: "hero" | "exterior" | "interior" | "amenities" | "site-layout" | "floor-plan";
+}
+
 export interface Property {
   id: string;
   slug: string;
-  title: string;
+  name: string;
+  title: string; // Display heading
   subtitle?: string;
+  developerName?: string;
+  propertyType: PropertyType;
   type: PropertyType;
   typeLabel: string;
   location: string;
+  locationArea: string; // Canonical area for clean filtering, e.g. "Chandanagar", "Patancheru", "Neopolis"
   address: string;
-  startingPrice: number;
-  priceDisplay: string;
+  bhkOptions: string[]; // e.g. ["2 BHK", "3 BHK"]
+  sizeRange?: string; // Only when confirmed
+  startingPrice?: number; // Only when confirmed, in INR
+  priceDisplay: string; // e.g. "₹6,999 / sq.ft*" or "Price on Request"
+  priceUnit?: string; // e.g. "per sq.ft" or "total"
   pricePerSqFt?: number;
-  areaRange: string;
-  status: PropertyStatus;
+  constructionStatus?: PropertyStatus;
+  status?: PropertyStatus;
   featured: boolean;
   published: boolean;
-  isDemo: boolean;
-  
-  // Specific project details
+  verificationStatus: string;
+  supportsFacingPreference?: boolean;
+
   projectOverview?: {
-    totalArea: string;
-    totalTowers: number;
-    towerConfiguration: string;
-    totalUnits: number;
-    communityType: string;
-    possession: string;
+    totalArea?: string;
+    totalTowers?: number;
+    towerConfiguration?: string;
+    totalUnits?: number;
+    communityType?: string;
+    possession?: string;
   };
 
   approvalInfo: {
     status: string;
     note: string;
     reraVerified: boolean;
-    reraNumber?: string;
+    projectReraNumber?: string;
   };
 
   configurations?: PropertyConfiguration[];
@@ -79,6 +94,7 @@ export interface Property {
     distanceNote: string;
     points: string[];
     mapQuery: string;
+    locationUrl: string;
   };
 
   paymentMilestones?: {
@@ -88,13 +104,7 @@ export interface Property {
     note: string;
   };
 
-  images: {
-    src: string;
-    alt: string;
-    caption?: string;
-  }[];
-
+  images: PropertyImage[];
   brochureUrl?: string;
   createdAt: string;
 }
-

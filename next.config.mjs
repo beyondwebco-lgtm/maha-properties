@@ -25,6 +25,36 @@ const nextConfig = {
     ],
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/services",
+        destination: "/properties",
+        permanent: true,
+      },
+      {
+        source: "/properties/premium-gated-community-chandanagar",
+        destination: "/properties/sai-keerthi-lake-view",
+        permanent: true,
+      },
+      {
+        source: "/properties/luxury-4bhk-independent-villa-kompally",
+        destination: "/properties",
+        permanent: true,
+      },
+      {
+        source: "/properties/premium-hmda-residential-plots-mokila",
+        destination: "/properties",
+        permanent: true,
+      },
+      {
+        source: "/properties/commercial-corridor-land-parcel-kollur",
+        destination: "/properties",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

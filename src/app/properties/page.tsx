@@ -1,26 +1,27 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import { PropertiesCatalogue } from "../../components/properties-catalogue";
+import { companyData } from "../../data/company";
 
 export const metadata: Metadata = {
-  title: "Properties for Sale in Hyderabad | MAHA Properties",
+  title: "Properties in Hyderabad | Apartments & Luxury Villas",
   description:
-    "Explore luxury apartments in Chandanagar & Neopolis, premium villas, HMDA open plots, and land parcels in Hyderabad. TSRERA Agent Reg A02500004914.",
+    "Explore approved apartments in Chandanagar & Neopolis and luxury gated villas in Patancheru, Hyderabad with personalized guidance from MAHA Properties.",
   alternates: {
-    canonical: "https://mahaproperties.in/properties",
+    canonical: `${companyData.websiteUrl}/properties`,
   },
   openGraph: {
-    title: "Properties for Sale in Hyderabad | MAHA Properties",
+    title: "Properties in Hyderabad | MAHA Properties",
     description:
-      "Explore ready apartments, villas, open plots, and land investments across Hyderabad with MAHA Properties. TSRERA Agent Reg A02500004914.",
-    url: "https://mahaproperties.in/properties",
+      "Explore approved apartments, gated communities, and luxury villas in Hyderabad with MAHA Properties.",
+    url: `${companyData.websiteUrl}/properties`,
     siteName: "MAHA PROPERTIES",
     images: [
       {
         url: "/properties/chandanagar/project-img-1.jpg",
         width: 1200,
         height: 630,
-        alt: "Properties in Hyderabad - MAHA Properties",
+        alt: "Properties in Hyderabad — MAHA Properties",
       },
     ],
     locale: "en_IN",
@@ -28,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Properties for Sale in Hyderabad | MAHA Properties",
+    title: "Properties in Hyderabad | MAHA Properties",
     description:
-      "Explore verified villas, apartments, plots, and land opportunities across Hyderabad with MAHA Properties.",
+      "Explore approved apartments, gated communities, and luxury villas across Hyderabad.",
     images: ["/properties/chandanagar/project-img-1.jpg"],
   },
 };
@@ -43,13 +44,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://mahaproperties.in",
+      item: companyData.websiteUrl,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Properties",
-      item: "https://mahaproperties.in/properties",
+      item: `${companyData.websiteUrl}/properties`,
     },
   ],
 };
@@ -61,16 +62,7 @@ export default function PropertiesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <Suspense
-        fallback={
-          <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="flex flex-col items-center gap-3">
-              <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-[#D4AF37]" />
-              <span className="text-xs text-gray-500 font-medium">Loading properties...</span>
-            </div>
-          </div>
-        }
-      >
+      <Suspense fallback={<div className="min-h-screen bg-[#F7F2E9]/40" />}>
         <PropertiesCatalogue />
       </Suspense>
     </>

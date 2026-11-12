@@ -9,7 +9,7 @@ interface PriceCalculatorProps {
 }
 
 export function PriceCalculator({
-  propertyTitle = "Premium Luxury Gated Community – Chandanagar",
+  propertyTitle = "Sai Keerthi Lake View",
 }: PriceCalculatorProps) {
   // Available configurations
   const configurations = [

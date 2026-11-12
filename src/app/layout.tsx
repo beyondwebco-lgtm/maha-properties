@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
+import { companyData } from "../data/company";
 
 const WhatsAppButton = dynamic(
   () => import("../components/whatsapp-button").then((m) => m.WhatsAppButton)
@@ -17,7 +18,7 @@ const playfair = Playfair_Display({
   adjustFontFallback: true,
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -32,29 +33,28 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mahaproperties.in"),
+  metadataBase: new URL(companyData.websiteUrl),
   title: {
-    default: "MAHA PROPERTIES | Real Estate Consultancy Hyderabad",
+    default: "MAHA PROPERTIES | Real Estate Consultancy in Hyderabad",
     template: "%s | MAHA PROPERTIES Hyderabad",
   },
   description:
-    "MAHA Properties is a premier real estate consultancy in Kukatpally, Hyderabad. TSRERA Registered Agent A02500004914. Villas, apartments, plots & land.",
+    "Discover thoughtfully selected apartments, luxury villas and gated communities in Hyderabad with personalized guidance from MAHA Properties. TSRERA Agent A02500004914.",
   keywords: [
-    "Real estate consultancy in Kukatpally",
-    "Properties in Hyderabad",
-    "Villas in Hyderabad",
-    "Apartments in Hyderabad",
-    "Open plots in Hyderabad",
-    "Chandanagar flats near Gangaram lake",
-    "Brigade Gateway Neopolis",
-    "MAHA Properties Hyderabad",
-    "TSRERA registered agent Hyderabad",
+    "Real estate consultancy in Hyderabad",
+    "Apartments for sale in Hyderabad",
+    "Luxury villas in Patancheru",
+    "Apartments in Chandanagar",
+    "Luxury apartments in Neopolis",
+    "Gated community properties in Hyderabad",
+    "MAHA Properties Kukatpally",
+    "TSRERA registered agent A02500004914",
   ],
-  authors: [{ name: "MAHA PROPERTIES", url: "https://mahaproperties.in" }],
+  authors: [{ name: "MAHA PROPERTIES", url: companyData.websiteUrl }],
   creator: "MAHA PROPERTIES",
   publisher: "MAHA PROPERTIES",
   alternates: {
-    canonical: "https://mahaproperties.in",
+    canonical: companyData.websiteUrl,
   },
   formatDetection: {
     telephone: true,
@@ -62,17 +62,17 @@ export const metadata: Metadata = {
     address: true,
   },
   openGraph: {
-    title: "MAHA PROPERTIES | Real Estate Consultancy Hyderabad",
+    title: "MAHA PROPERTIES | Real Estate Consultancy in Hyderabad",
     description:
-      "Explore ready apartments, villas, plots, and land in Hyderabad. Registered with Telangana RERA (Reg No: A02500004914).",
-    url: "https://mahaproperties.in",
+      "Your Property Journey, Our Priority. Explore apartments, gated communities and luxury villas across Hyderabad with MAHA Properties.",
+    url: companyData.websiteUrl,
     siteName: "MAHA PROPERTIES",
     images: [
       {
         url: "/properties/chandanagar/project-img-1.jpg",
         width: 1200,
         height: 630,
-        alt: "MAHA Properties Hyderabad",
+        alt: "MAHA Properties — Real Estate Consultancy in Hyderabad",
       },
     ],
     locale: "en_IN",
@@ -80,9 +80,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MAHA PROPERTIES | Real Estate Consultancy Hyderabad",
+    title: "MAHA PROPERTIES | Real Estate Consultancy in Hyderabad",
     description:
-      "Explore ready apartments, villas, plots, and land in Hyderabad. TSRERA Agent Reg No: A02500004914.",
+      "Discover apartments, gated communities and luxury villas in Hyderabad. TSRERA Registered Agent A02500004914.",
     images: ["/properties/chandanagar/project-img-1.jpg"],
   },
   robots: {
@@ -95,46 +95,34 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "MAHA PROPERTIES",
-  image: "https://mahaproperties.in/images/maha-logo-dark.png",
-  logo: "https://mahaproperties.in/images/maha-logo-light.png",
-  url: "https://mahaproperties.in",
+  description:
+    "Real estate consultancy and property sales advisory in Kukatpally, Hyderabad assisting buyers with residential apartments, gated communities, and luxury villas.",
+  image: `${companyData.websiteUrl}/images/maha-logo-dark.png`,
+  logo: `${companyData.websiteUrl}/images/maha-logo-light.png`,
+  url: companyData.websiteUrl,
   telephone: "+91-7799884849",
-  email: "mahaproperties16@gmail.com",
+  email: companyData.email,
   founder: {
     "@type": "Person",
-    name: "Nallamekala Surendra",
+    name: companyData.rera.registeredAgent,
   },
   identifier: {
     "@type": "PropertyValue",
-    propertyID: "TSRERA Registration Number",
-    value: "A02500004914",
+    propertyID: "TSRERA Agent Registration Number",
+    value: companyData.rera.agentRegistrationNumber,
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Plot No. 12, Flat No. 101, SLN Heights, Tulasi Nagar",
-    addressLocality: "Kukatpally",
-    addressRegion: "Telangana",
-    postalCode: "500072",
+    streetAddress: `${companyData.address.line1}, ${companyData.address.line2}`,
+    addressLocality: companyData.address.area,
+    addressRegion: companyData.address.state,
+    postalCode: companyData.address.pincode,
     addressCountry: "IN",
   },
   geo: {
     "@type": "GeoCoordinates",
     latitude: 17.4934,
     longitude: 78.4018,
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "09:00",
-    closes: "20:00",
   },
   areaServed: [
     {
@@ -150,20 +138,16 @@ const organizationSchema = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en-IN" className="scroll-smooth">
-      <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <html lang="en-IN" className={`${playfair.variable} ${inter.variable}`}>
+      <body className="antialiased min-h-screen flex flex-col bg-white text-[#171C26]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-      </head>
-      <body className={`${playfair.variable} ${jakarta.variable} min-h-screen flex flex-col bg-white text-gray-900 antialiased selection:bg-[#D4AF37] selection:text-black`}>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

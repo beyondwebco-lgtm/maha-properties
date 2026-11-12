@@ -1,6 +1,8 @@
 export interface CompanyInfo {
   name: string;
   tagline: string;
+  supportingCopy: string;
+  websiteUrl: string;
   contactPerson: string;
   primaryPhone: string;
   primaryPhoneFormatted: string;
@@ -26,18 +28,14 @@ export interface CompanyInfo {
     validityEnd: string;
     authority: string;
   };
-  categories: {
-    id: string;
-    name: string;
-    slug: string;
-    description: string;
-    image: string;
-  }[];
 }
 
 export const companyData: CompanyInfo = {
   name: "MAHA PROPERTIES",
-  tagline: "Your Property Journey, Our Priority",
+  tagline: "Your Property Journey, Our Priority.",
+  supportingCopy:
+    "Discover thoughtfully selected apartments, luxury villas and premium residential communities across Hyderabad with personalized guidance from MAHA Properties.",
+  websiteUrl: "https://www.mahapropertys.com",
   contactPerson: "N. Surendra",
   primaryPhone: "+917799884849",
   primaryPhoneFormatted: "+91 7799884849",
@@ -63,35 +61,11 @@ export const companyData: CompanyInfo = {
     validityEnd: "03/03/2031",
     authority: "Telangana Real Estate Regulatory Authority (TSRERA)",
   },
-  categories: [
-    {
-      id: "villas",
-      name: "Villas",
-      slug: "villas",
-      description: "Independent luxury villas crafted for upscale living with modern amenities.",
-      image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "apartments",
-      name: "Apartments",
-      slug: "apartments",
-      description: "Premium high-rise & gated community apartments in strategic Hyderabad hubs.",
-      image: "/properties/chandanagar/project-img-1.jpg",
-    },
-    {
-      id: "open-plots",
-      name: "Open Plots",
-      slug: "open-plots",
-      description: "HMDA & DTCP approved layout residential plots with high appreciation potential.",
-      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "lands",
-      name: "Lands",
-      slug: "lands",
-      description: "Commercial, agricultural, and prospective development parcels across growth corridors.",
-      image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=800&q=80",
-    },
-  ],
 };
 
+export function getPropertyWhatsAppUrl(projectName?: string): string {
+  const text = projectName
+    ? `Hello MAHA Properties, I am interested in ${projectName}. Please share the latest pricing, availability and site visit details.`
+    : "Hello MAHA Properties, I would like to enquire about residential properties in Hyderabad. Please share available options and site visit details.";
+  return `https://wa.me/${companyData.whatsappNumber}?text=${encodeURIComponent(text)}`;
+}

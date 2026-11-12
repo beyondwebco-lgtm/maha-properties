@@ -3,21 +3,22 @@
 @theme {
   --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --color-charcoal: #141414;
-  --color-charcoal-light: #222222;
-  --color-charcoal-card: #1c1c1c;
-  --color-gold: #D4AF37;
-  --color-gold-light: #F5E296;
-  --color-gold-dark: #A4811B;
-  --color-ivory: #F8F6F0;
-  --color-ivory-dark: #EFECE3;
-  --color-muted-gray: #777777;
-  --color-border-subtle: #E8E5DC;
+  --color-navy: #0B1630;
+  --color-navy-light: #132347;
+  --color-charcoal: #171C26;
+  --color-charcoal-light: #222938;
+  --color-gold: #C9A25B;
+  --color-gold-light: #E2C68D;
+  --color-gold-dark: #A6823F;
+  --color-ivory: #F7F2E9;
+  --color-ivory-dark: #EFE8DA;
+  --color-muted-gray: #747B86;
+  --color-border-subtle: #E5DFD3;
 }
 
 :root {
   --background: #FFFFFF;
-  --foreground: #141414;
+  --foreground: #171C26;
 }
 
 body {
@@ -28,24 +29,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Gold Gradient utilities */
+/* Champagne Gold gradient utilities */
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #F5DF88 0%, #D4AF37 50%, #B08B1F 100%);
+  background: linear-gradient(135deg, #DEC084 0%, #C9A25B 55%, #A6823F 100%);
 }
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #F5DF88 0%, #D4AF37 50%, #B08B1F 100%);
+  background: linear-gradient(135deg, #E5CA93 0%, #C9A25B 55%, #B08B45 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.border-gold-gradient {
-  border-image: linear-gradient(135deg, #F5DF88, #D4AF37, #9E7811) 1;
 }
 
 /* Performance: content-visibility for below-the-fold sections */
@@ -60,7 +56,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid #C9A25B;
   outline-offset: 2px;
 }
 

@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
-import { propertiesData } from "../data/properties";
+import { getPublishedProperties } from "../data/properties";
+import { companyData } from "../data/company";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mahaproperties.in";
+  const baseUrl = companyData.websiteUrl;
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -18,12 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -35,17 +30,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
   ];
 
-  const propertyRoutes: MetadataRoute.Sitemap = propertiesData
-    .filter((prop) => prop.published)
-    .map((prop) => ({
-      url: `${baseUrl}/properties/${prop.slug}`,
-      lastModified: new Date(prop.createdAt),
-      changeFrequency: "weekly",
-      priority: prop.featured ? 0.95 : 0.8,
-    }));
+  const propertyRoutes: MetadataRoute.Sitemap = getPublishedProperties().map((prop) => ({
+    url: `${baseUrl}/properties/${prop.slug}`,
+    lastModified: new Date(prop.createdAt),
+    changeFrequency: "weekly",
+    priority: prop.featured ? 0.95 : 0.8,
+  }));
 
   return [...staticRoutes, ...propertyRoutes];
 }
-

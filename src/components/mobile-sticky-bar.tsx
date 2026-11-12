@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Phone, MessageCircle, Send } from "lucide-react";
-import { companyData } from "../data/company";
+import { companyData, getPropertyWhatsAppUrl } from "../data/company";
 
 interface MobileStickyBarProps {
   propertyTitle?: string;
@@ -13,13 +13,7 @@ export function MobileStickyBar({
   propertyTitle,
   onEnquireClick,
 }: MobileStickyBarProps) {
-  const defaultText = propertyTitle
-    ? `Hello MAHA Properties, I'm interested in ${propertyTitle}. Please share more details.`
-    : "Hello MAHA Properties, I would like to inquire about your property listings.";
-
-  const waUrl = `https://wa.me/${companyData.whatsappNumber}?text=${encodeURIComponent(
-    defaultText
-  )}`;
+  const waUrl = getPropertyWhatsAppUrl(propertyTitle);
 
   const scrollToEnquiry = () => {
     if (onEnquireClick) {
