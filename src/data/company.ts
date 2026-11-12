@@ -63,9 +63,11 @@ export const companyData: CompanyInfo = {
   },
 };
 
-export function getPropertyWhatsAppUrl(projectName?: string): string {
-  const text = projectName
-    ? `Hello MAHA Properties, I am interested in ${projectName}. Please share the latest pricing, availability and site visit details.`
-    : "Hello MAHA Properties, I would like to enquire about residential properties in Hyderabad. Please share available options and site visit details.";
+export function getPropertyWhatsAppUrl(projectName?: string, customMessage?: string): string {
+  const text =
+    customMessage ||
+    (projectName
+      ? `Hello MAHA Properties, I am interested in ${projectName}. Please share the latest pricing, availability and site visit details.`
+      : "Hello MAHA Properties, I would like to enquire about residential properties in Hyderabad. Please share available options and site visit details.");
   return `https://wa.me/${companyData.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }

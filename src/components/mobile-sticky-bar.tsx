@@ -6,14 +6,16 @@ import { companyData, getPropertyWhatsAppUrl } from "../data/company";
 
 interface MobileStickyBarProps {
   propertyTitle?: string;
+  whatsappMessage?: string;
   onEnquireClick?: () => void;
 }
 
 export function MobileStickyBar({
   propertyTitle,
+  whatsappMessage,
   onEnquireClick,
 }: MobileStickyBarProps) {
-  const waUrl = getPropertyWhatsAppUrl(propertyTitle);
+  const waUrl = getPropertyWhatsAppUrl(propertyTitle, whatsappMessage);
 
   const scrollToEnquiry = () => {
     if (onEnquireClick) {

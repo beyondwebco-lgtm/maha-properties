@@ -51,12 +51,16 @@ export function PropertyCard({ property }: PropertyCardProps) {
           <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-[#0B1630]/90 text-[#F7F2E9] backdrop-blur-sm border border-white/10">
             {property.propertyType === "villas" ? "Villas" : "Apartments"}
           </span>
-          {property.constructionStatus && (
+          {property.constructionStatus ? (
             <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-emerald-700/95 text-white shadow flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3" />
               {property.constructionStatus}
             </span>
-          )}
+          ) : property.statusNotice ? (
+            <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wide bg-amber-600/95 text-white shadow">
+              Details Being Updated
+            </span>
+          ) : null}
         </div>
 
         {/* Bottom Location */}
@@ -106,13 +110,20 @@ export function PropertyCard({ property }: PropertyCardProps) {
 
         {/* Price & Dual CTAs */}
         <div className="pt-3 border-t border-[#E5DFD3]/70 space-y-3">
-          <div className="flex items-baseline justify-between">
-            <span className="text-[11px] text-[#747B86] font-medium uppercase tracking-wider">
-              {property.startingPrice ? "Indicative Price" : "Pricing"}
-            </span>
-            <span className="text-base font-bold text-[#0B1630]">
-              {property.priceDisplay}
-            </span>
+          <div className="space-y-0.5">
+            <div className="flex items-baseline justify-between">
+              <span className="text-[11px] text-[#747B86] font-medium uppercase tracking-wider">
+                {property.startingPrice || property.pricePerSqFt ? "Indicative Price" : "Pricing"}
+              </span>
+              <span className="text-base font-bold text-[#0B1630]">
+                {property.priceDisplay}
+              </span>
+            </div>
+            {property.priceDisclaimer && (
+              <p className="text-[10px] text-[#747B86] text-right">
+                {property.priceDisclaimer}
+              </p>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-2.5">

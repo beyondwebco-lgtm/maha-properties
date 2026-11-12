@@ -150,7 +150,7 @@ export default async function PropertyDetailPage({ params }: Props) {
     .filter((p) => p.slug !== property.slug)
     .slice(0, 3);
 
-  const whatsappUrl = getPropertyWhatsAppUrl(property.name);
+  const whatsappUrl = getPropertyWhatsAppUrl(property.name, property.whatsappMessage);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -292,6 +292,13 @@ export default async function PropertyDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left 8 Columns: Gallery, Overview, Specs, Amenities, Location */}
           <div className="lg:col-span-8 space-y-10">
+            {property.statusNotice && (
+              <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-center gap-3 text-xs sm:text-sm text-amber-900 font-medium">
+                <Info className="w-4 h-4 text-amber-700 shrink-0" />
+                <span>{property.statusNotice}</span>
+              </div>
+            )}
+
             {/* 2. Hero Gallery */}
             {property.images.length > 0 ? (
               <ImageGallery images={property.images} />
@@ -351,6 +358,11 @@ export default async function PropertyDetailPage({ params }: Props) {
                   <span className="text-sm font-bold text-[#0B1630] mt-1 block">
                     {property.priceDisplay}
                   </span>
+                  {property.priceDisclaimer && (
+                    <span className="text-[10px] text-[#747B86] mt-1 block leading-snug">
+                      {property.priceDisclaimer}
+                    </span>
+                  )}
                 </div>
 
                 {property.projectOverview?.totalArea && (
@@ -470,6 +482,62 @@ export default async function PropertyDetailPage({ params }: Props) {
                     </div>
                   ))}
                 </div>
+              </div>
+            )}
+
+            {/* Conditional Tower-Wise Pricing, Specifications & Payment Plan */}
+            {(property.towerPricing || property.specifications || property.paymentPlan) && (
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E5DFD3] shadow-sm space-y-6">
+                {property.towerPricing && property.towerPricing.length > 0 && (
+                  <div className="space-y-3">
+                    <h2 className="font-serif text-2xl font-bold text-[#0B1630]">
+                      Tower-Wise Base Pricing
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {property.towerPricing.map((tp) => (
+                        <div
+                          key={tp.tower}
+                          className="p-4 rounded-2xl bg-[#F7F2E9]/60 border border-[#E5DFD3] flex items-center justify-between"
+                        >
+                          <span className="text-sm font-semibold text-[#171C26]">{tp.tower}</span>
+                          <span className="text-base font-bold text-[#0B1630]">{tp.rate}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {property.priceDisclaimer && (
+                      <p className="text-xs text-[#747B86] italic">
+                        {property.priceDisclaimer}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {property.specifications && property.specifications.length > 0 && (
+                  <div className="pt-4 border-t border-[#E5DFD3] space-y-3">
+                    <h3 className="font-serif text-xl font-bold text-[#0B1630]">
+                      Premium Specifications
+                    </h3>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {property.specifications.map((spec) => (
+                        <li key={spec} className="flex items-start gap-2 text-sm text-[#171C26]">
+                          <CheckCircle2 className="w-4 h-4 text-[#C9A25B] shrink-0 mt-1" />
+                          <span>{spec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {property.paymentPlan && (
+                  <div className="pt-4 border-t border-[#E5DFD3] space-y-2">
+                    <h3 className="font-serif text-xl font-bold text-[#0B1630]">
+                      {property.paymentPlan.title}
+                    </h3>
+                    <p className="text-sm text-[#747B86] leading-relaxed">
+                      {property.paymentPlan.summary}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
@@ -594,7 +662,10 @@ export default async function PropertyDetailPage({ params }: Props) {
         )}
       </div>
 
-      <MobileStickyBar propertyTitle={property.name} />
+      <MobileStickyBar
+        propertyTitle={property.name}
+        whatsappMessage={property.whatsappMessage}
+      />
     </div>
   );
 }

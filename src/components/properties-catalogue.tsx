@@ -224,6 +224,7 @@ export function PropertiesCatalogue() {
               >
                 <option value="">Any Budget</option>
                 <option value="under-1cr">Under ₹1 Cr (Confirmed Base)</option>
+                <option value="1cr-3cr">₹1 Cr – ₹3 Cr (Confirmed Base)</option>
                 <option value="price-on-request">Price on Request</option>
               </select>
             </div>
@@ -252,7 +253,7 @@ export function PropertiesCatalogue() {
           <div className="flex items-center justify-between pt-2 text-xs text-[#747B86]">
             <span>
               Showing <strong className="text-[#0B1630]">{filteredProperties.length}</strong> of{" "}
-              {publishedProperties.length} approved properties
+              {publishedProperties.length} residential projects
             </span>
             {hasActiveFilters && (
               <button

@@ -2,7 +2,7 @@ import { Property } from "../types/property";
 
 export const propertiesData: Property[] = [
   // =========================================================================
-  // 1. SAI KEERTHI LAKE VIEW (PUBLISHED)
+  // 1. SAI KEERTHI LAKE VIEW
   // =========================================================================
   {
     id: "MP-SKLV-01",
@@ -20,6 +20,7 @@ export const propertiesData: Property[] = [
     sizeRange: "1,270 – 1,980 sq.ft",
     startingPrice: 8888730,
     priceDisplay: "₹6,999 / sq.ft*",
+    priceDisclaimer: "*Price subject to availability and applicable charges.",
     priceUnit: "per sq.ft",
     pricePerSqFt: 6999,
     constructionStatus: "Ready to Move",
@@ -29,6 +30,9 @@ export const propertiesData: Property[] = [
     verificationStatus:
       "Base price ₹6,999/sq.ft and core specifications confirmed; project-specific HMDA/RERA approval numbers subject to verification.",
     supportsFacingPreference: true,
+    facingOptions: ["East Facing", "West Facing", "Either Facing"],
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in Sai Keerthi Lake View at Chandanagar. Please share the latest availability, pricing and site visit details.",
     projectOverview: {
       totalArea: "2.2 Acres",
       totalTowers: 3,
@@ -172,39 +176,45 @@ export const propertiesData: Property[] = [
   },
 
   // =========================================================================
-  // 2. ADITI MITRA VILLAS (PUBLISHED)
+  // 2. ADITI MITRA VILLAS
   // =========================================================================
   {
     id: "MP-AMV-02",
     slug: "aditi-mitra-villas",
     name: "Aditi Mitra Villas",
     title: "Aditi Mitra Villas",
-    subtitle: "4 BHK G+2 Triplex Luxury Gated Villa Community in Patancheru, Hyderabad",
+    subtitle: "4 BHK G+2 Triplex Luxury Gated Community Villas in Patancheru, Hyderabad",
     propertyType: "villas",
     type: "villas",
-    typeLabel: "Luxury Gated Villa Community",
+    typeLabel: "Luxury Gated Community Villas",
     location: "Patancheru, Hyderabad",
     locationArea: "Patancheru",
     address: "Patancheru, near ORR Exit No. 3, Hyderabad, Telangana",
     bhkOptions: ["4 BHK"],
-    sizeRange: "2,409 sq.ft Built-up • 150–200 Sq. Yds. Plots",
-    priceDisplay: "Price on Request",
+    sizeRange: "2,409 sq.ft Built-up • 150–200 sq.yd Plots",
+    startingPrice: 18500000,
+    priceDisplay: "Starting from ₹1.85 Cr*",
+    priceDisclaimer: "*Price subject to availability and applicable charges.",
+    priceUnit: "total",
     constructionStatus: "Available",
     status: "Available",
     featured: true,
     published: true,
     verificationStatus:
-      "Project specifications confirmed from supplied material; final pricing pending client confirmation before public display.",
+      "Starting price ₹1.85 Cr and 4 BHK G+2 triplex villa specs confirmed; project-specific HMDA approval numbers and official villa photography pending.",
+    statusNotice: "Details Being Updated — Project Photography Awaited",
     supportsFacingPreference: true,
+    facingOptions: ["East Facing", "West Facing"],
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in Aditi Mitra Villas. Please share the latest villa availability, pricing and site visit details.",
     projectOverview: {
-      totalTowers: undefined,
       towerConfiguration: "G+2 Triplex Villas",
       totalUnits: 42,
-      communityType: "Luxury Gated Villa Community",
+      communityType: "Luxury Gated Community Villas",
     },
     approvalInfo: {
       status: "HMDA Approved Community (Subject to Verification)",
-      note: "HMDA Approved Community, subject to verification of project-specific approval numbers. 100% Vaastu Compliant as stated in supplied project material. MAHA Properties acts as a registered real estate consultancy (TSRERA Agent Reg. No. A02500004914).",
+      note: "HMDA Approved Community, subject to verification of project-specific approval details. 100% Vaastu Compliant as stated in supplied project material. MAHA Properties acts as a registered real estate consultancy (TSRERA Agent Reg. No. A02500004914).",
       reraVerified: false,
     },
     configurations: [
@@ -213,39 +223,39 @@ export const propertiesData: Property[] = [
         name: "4 BHK Triplex Villa",
         type: "4 BHK",
         sizeSqFt: 2409,
-        sizeLabel: "2,409 sq.ft Built-up Area (150–200 Sq. Yds. Plot)",
-        facing: ["East", "West"],
+        sizeLabel: "2,409 sq.ft built-up area (150–200 sq.yd plot sizes)",
+        facing: ["East Facing", "West Facing"],
         description:
-          "G+2 Triplex 4 BHK villa on 150–200 Sq. Yds. plot sizes with East and West facing options.",
+          "G+2 Triplex 4 BHK villa on 150–200 sq.yd plot sizes, available in East Facing and West Facing options.",
       },
     ],
     description:
-      "Aditi Mitra Villas is an exclusive 42-villa gated community in Patancheru, Hyderabad, offering 4 BHK G+2 triplex residences. Designed on 150–200 Sq. Yds. plots with 2,409 sq.ft built-up area, the community combines East and West facing Vaastu-compliant planning with landscaped open spaces, a banquet hall, swimming pool, and quick connectivity to ORR Exit No. 3.",
+      "Aditi Mitra Villas is a gated community of 42 luxury 4 BHK G+2 triplex villas in Patancheru, Hyderabad. With 2,409 sq.ft built-up area on 150–200 sq.yd plot sizes, the community offers East Facing and West Facing villas alongside a swimming pool, gym, banquet hall, landscaped open spaces, security, and convenient connectivity to Patancheru and ORR Exit No. 3.",
     highlights: [
-      "42 Exclusive G+2 Triplex Villas",
-      "150–200 Sq. Yds. Plot Sizes with 2,409 sq.ft Built-up Area",
-      "East and West Facing Options",
+      "42 Luxury 4 BHK G+2 Triplex Villas",
+      "2,409 sq.ft built-up area on 150–200 sq.yd plot sizes",
+      "East Facing and West Facing options",
       "100% Vaastu Compliant (as stated in supplied project material)",
       "HMDA Approved Community, subject to verification",
       "Connectivity to Patancheru and ORR Exit No. 3",
     ],
     amenities: [
       { name: "Swimming Pool", icon: "Waves" },
-      { name: "Fully Equipped Gym", icon: "Dumbbell" },
+      { name: "Gym", icon: "Dumbbell" },
       { name: "Banquet Hall", icon: "Building2" },
-      { name: "Indoor Games", icon: "Gamepad2" },
       { name: "Children's Play Area", icon: "Smile" },
       { name: "Landscaped Open Spaces", icon: "Trees" },
-      { name: "CCTV and Security", icon: "ShieldCheck" },
+      { name: "Security", icon: "ShieldCheck" },
+      { name: "Indoor Games", icon: "Gamepad2" },
       { name: "Common Area Power Backup", icon: "Sun" },
       { name: "Underground Electrical Cabling", icon: "Layers" },
     ],
     locationConnectivity: {
-      distanceNote: "Strategic connectivity to Patancheru and Outer Ring Road (ORR) Exit No. 3.",
+      distanceNote: "Connectivity to Patancheru and Outer Ring Road (ORR) Exit No. 3.",
       points: [
         "Direct connectivity to Patancheru and Mumbai Highway",
         "Quick access to ORR Exit No. 3 for Financial District & HITEC City",
-        "Proximity to industrial, educational, and healthcare hubs in West Hyderabad",
+        "Proximity to educational, healthcare, and employment hubs in West Hyderabad",
       ],
       mapQuery: "Patancheru+ORR+Exit+3+Hyderabad",
       locationUrl: "https://www.google.com/maps/search/?api=1&query=Patancheru+ORR+Exit+3+Hyderabad",
@@ -255,7 +265,7 @@ export const propertiesData: Property[] = [
   },
 
   // =========================================================================
-  // 3. BRIGADE BARCELONA (PUBLISHED)
+  // 3. BRIGADE BARCELONA
   // =========================================================================
   {
     id: "MP-BRG-BCL-03",
@@ -277,14 +287,17 @@ export const propertiesData: Property[] = [
     featured: true,
     published: true,
     verificationStatus:
-      "Highlights verified from supplied marketing information; pricing and exact unit dimensions pending official confirmation.",
+      "Highlights verified from supplied marketing information; pricing, unit dimensions, and RERA number pending confirmation.",
+    statusNotice: "Details Being Updated — Pricing & Unit Dimensions Pending Confirmation",
     supportsFacingPreference: false,
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in Brigade Barcelona at Neopolis, Hyderabad. Please share the latest pricing, availability and site visit details.",
     projectOverview: {
       communityType: "Premium High-Rise Apartments",
     },
     approvalInfo: {
-      status: "Developer Project — Verification in Progress",
-      note: "Developed by Brigade Group. Unit dimensions, pricing, and project-specific RERA details are shared upon official developer confirmation. MAHA Properties acts as a registered real estate consultancy (TSRERA Agent Reg. No. A02500004914).",
+      status: "Details Being Updated",
+      note: "Developed by Brigade Group. Unit dimensions, pricing, and project-specific RERA details will be shared upon official developer confirmation. MAHA Properties acts as a registered real estate consultancy (TSRERA Agent Reg. No. A02500004914).",
       reraVerified: false,
     },
     configurations: [
@@ -341,7 +354,7 @@ export const propertiesData: Property[] = [
   },
 
   // =========================================================================
-  // 4. BRIGADE GATEWAY (PUBLISHED)
+  // 4. BRIGADE GATEWAY
   // =========================================================================
   {
     id: "MP-BRG-GTW-04",
@@ -363,8 +376,11 @@ export const propertiesData: Property[] = [
     featured: true,
     published: true,
     verificationStatus:
-      "TG RERA P02400009142 verified on supplied creative; current pricing (previously shared ₹4.90 Cr onwards) and inventory subject to reconfirmation.",
+      "TG RERA P02400009142 verified on supplied creative; current pricing and inventory pending reconfirmation.",
+    statusNotice: "Details Being Updated — Current Pricing Subject to Reconfirmation",
     supportsFacingPreference: false,
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in Brigade Gateway at Neopolis, Hyderabad. Please share the latest pricing, availability and site visit details.",
     projectOverview: {
       communityType: "Ultra-Luxury Residences & Integrated Development",
     },
@@ -422,6 +438,12 @@ export const propertiesData: Property[] = [
         category: "hero",
       },
       {
+        src: "/properties/brigade-gateway/gateway-exterior.jpg",
+        alt: "Brigade Gateway Neopolis integrated commercial and residential arrival plaza",
+        caption: "Brigade Gateway — Integrated Mixed-Use Precinct View",
+        category: "exterior",
+      },
+      {
         src: "/properties/brigade-gateway/gateway-overview.jpg",
         alt: "Brigade Gateway Neopolis Imperial Residences overview and amenities",
         caption: "Brigade Gateway — Imperial Residences & Integrated Lifestyle",
@@ -432,76 +454,132 @@ export const propertiesData: Property[] = [
   },
 
   // =========================================================================
-  // 5. MSN LUXURY RESIDENTIAL DEVELOPMENT (UNPUBLISHED CANDIDATE)
+  // 5. MSN LUXURY RESIDENTIAL DEVELOPMENT
   // =========================================================================
   {
     id: "MP-MSN-LUX-05",
     slug: "msn-luxury-residential-neopolis",
     name: "MSN Luxury Residential Development",
-    title: "MSN Luxury Residential Development (Name Pending Confirmation)",
-    developerName: "MSN Group",
+    title: "MSN Luxury Residential Development",
+    subtitle: "3 & 4 BHK Luxury High-Rise Residential Apartments in Neopolis, Kokapet, Hyderabad",
+    developerName: "MSN Realty",
     propertyType: "apartments",
     type: "apartments",
-    typeLabel: "Luxury High-Rise Apartments",
+    typeLabel: "Luxury High-Rise Residential Apartments",
     location: "Neopolis, Kokapet, Hyderabad",
     locationArea: "Neopolis",
     address: "Neopolis, Kokapet, Hyderabad, Telangana",
     bhkOptions: ["3 BHK", "4 BHK"],
     sizeRange: "2,424 – 4,545 sq.ft",
-    priceDisplay: "Price Pending Confirmation",
+    priceDisplay: "From ₹10,499 / sq.ft*",
+    priceDisclaimer:
+      "Base prices are indicative and subject to availability, applicable charges and confirmation.",
+    priceUnit: "per sq.ft",
+    pricePerSqFt: 10499,
     constructionStatus: "New Launch",
     status: "New Launch",
     featured: false,
-    published: false,
+    published: true,
     verificationStatus:
-      "Unpublished candidate: exact public project name and previously supplied base rates (Tower A ₹10,699/sq.ft, Towers B & C ₹10,499/sq.ft) require client confirmation.",
+      "Project highlights, unit sizes, specifications, tower-wise base prices, and 20:20:20:20:20 payment plan updated from supplied MSN material; exact public project name and RERA number pending confirmation.",
+    statusNotice: "Details Being Updated — Official Public Project Name & RERA Number Pending",
+    supportsFacingPreference: false,
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in the MSN Luxury Residential Development at Neopolis, Kokapet. Please share available 3 & 4 BHK options, pricing and site visit details.",
     projectOverview: {
       totalArea: "7 Acres",
       totalTowers: 3,
-      towerConfiguration: "56 Floors",
-      communityType: "Ultra-Luxury High-Rise",
+      towerConfiguration: "56 Floors • 8 Sky Pavilions",
+      communityType: "Luxury High-Rise Residential Apartments",
     },
     approvalInfo: {
-      status: "Pending Confirmation",
-      note: "Unpublished candidate awaiting public project name, rate, and approval confirmation.",
+      status: "Details Being Updated",
+      note: "Developed by MSN Realty. Official project registration details and confirmed final cost sheets will be provided through MAHA Properties (TSRERA Agent Reg. No. A02500004914).",
       reraVerified: false,
     },
     configurations: [
       {
         id: "msn-lux-3bhk",
-        name: "3 BHK",
+        name: "3 BHK Luxury Residences",
         type: "3 BHK",
-        sizeLabel: "2,424 / 2,666 / 2,828 sq.ft",
+        sizeLabel: "2,424 | 2,666 | 2,828 sq.ft",
+        description: "Spacious 3 BHK apartment options across 2,424, 2,666, and 2,828 sq.ft.",
       },
       {
         id: "msn-lux-4bhk",
-        name: "4 BHK",
+        name: "4 BHK Luxury Residences",
         type: "4 BHK",
-        sizeLabel: "3,111 – 4,545 sq.ft",
+        sizeLabel:
+          "3,111 | 3,150 | 3,175 | 3,200 | 3,600 | 3,888 | 4,141 | 4,300 | 4,401 | 4,500 | 4,545 sq.ft",
+        description:
+          "Expansive 4 BHK apartment layouts ranging from 3,111 sq.ft up to 4,545 sq.ft.",
       },
     ],
-    description:
-      "High-rise residential development in Neopolis, Kokapet spanning 7 acres across 3 towers of 56 floors with 8 Sky Pavilions and 2,30,000 sq.ft of stated clubhouse and amenity space.",
-    highlights: [
-      "7 Acres • 3 Towers • 56 Floors",
-      "8 Sky Pavilions",
-      "2,30,000 sq.ft stated clubhouse and amenity space",
-      "3 BHK: 2,424 / 2,666 / 2,828 sq.ft; 4 BHK: 3,111–4,545 sq.ft",
+    towerPricing: [
+      { tower: "Tower A", rate: "₹10,699 per sq.ft" },
+      { tower: "Towers B & C", rate: "₹10,499 per sq.ft" },
     ],
-    amenities: [],
-    images: [],
+    specifications: [
+      "Tower A: 11.4 ft floor-to-floor height",
+      "Towers B & C: 10.5 ft floor-to-floor height",
+      "Engineered Marble Flooring",
+      "Delta CP Fittings or equivalent",
+      "TOTO Sanitaryware or equivalent",
+    ],
+    paymentPlan: {
+      title: "20:20:20:20:20 Payment Plan",
+      summary:
+        "Five instalments of 20% each. The supplied information indicates payments beginning within 30 days of DOB and extending up to the fourth year.",
+    },
+    description:
+      "A premium residential development in Neopolis, Kokapet, featuring spacious 3 and 4 BHK luxury residences, three residential towers rising 56 floors across 7 acres, 8 Sky Pavilions, and 2,30,000 sq.ft of clubhouse and lifestyle amenities.",
+    highlights: [
+      "Total Land Area: 7 Acres",
+      "3 Towers • 56 Floors • 8 Sky Pavilions",
+      "3 & 4 BHK Residences (2,424–4,545 sq.ft)",
+      "Iconic Clubhouse & Amenities: 2,30,000 sq.ft",
+      "Tower A: 11.4 ft floor-to-floor height | Towers B & C: 10.5 ft",
+      "Engineered Marble Flooring, Delta CP Fittings & TOTO Sanitaryware (or equivalent)",
+    ],
+    amenities: [
+      { name: "2,30,000 sq.ft Clubhouse", icon: "Building2" },
+      { name: "8 Sky Pavilions", icon: "Sparkles" },
+      { name: "Landscaped Grounds", icon: "Trees" },
+      { name: "Fitness & Wellness", icon: "Dumbbell" },
+      { name: "Swimming Pool", icon: "Waves" },
+      { name: "24/7 Security", icon: "ShieldCheck" },
+    ],
+    locationConnectivity: {
+      distanceNote: "Located in Neopolis, Kokapet, Hyderabad.",
+      points: [
+        "Prime Neopolis, Kokapet address with ORR connectivity",
+        "Close to Financial District & HITEC City corridors",
+        "Easy access to Rajiv Gandhi International Airport via ORR",
+      ],
+      mapQuery: "Neopolis+Kokapet+Hyderabad",
+      locationUrl: "https://www.google.com/maps/search/?api=1&query=Neopolis+Kokapet+Hyderabad",
+    },
+    images: [
+      {
+        src: "/properties/msn-luxury/msn-highlights.jpg",
+        alt: "MSN Luxury Residential Development Neopolis Kokapet project highlights and specifications",
+        caption: "MSN Neopolis — 7 Acres, 3 Towers, 56 Floors, 2,30,000 sq.ft Clubhouse",
+        category: "hero",
+      },
+    ],
     createdAt: "2026-11-12",
   },
 
   // =========================================================================
-  // 6. ONE BY MSN (UNPUBLISHED CANDIDATE)
+  // 6. ONE BY MSN
   // =========================================================================
   {
     id: "MP-ONE-MSN-06",
     slug: "one-by-msn-neopolis",
     name: "One by MSN",
     title: "One by MSN",
-    developerName: "MSN Group",
+    subtitle: "Ultra-Luxury 4 BHK Residences at Neopolis Plot 1, Hyderabad",
+    developerName: "MSN Realty",
     propertyType: "apartments",
     type: "apartments",
     typeLabel: "Ultra-Luxury Apartments",
@@ -510,13 +588,17 @@ export const propertiesData: Property[] = [
     address: "Neopolis Plot 1, Kokapet, Hyderabad, Telangana",
     bhkOptions: ["4 BHK"],
     sizeRange: "5,250 – 7,460 sq.ft",
-    priceDisplay: "Price Pending Confirmation",
+    priceDisplay: "Price on Request",
     constructionStatus: "New Launch",
     status: "New Launch",
     featured: false,
-    published: false,
+    published: true,
     verificationStatus:
-      "Unpublished candidate: verify project details and marketing authorization before publishing.",
+      "Supplied project facts & creative (TG RERA P02400009393, HMDA 011159/BP/HMDA/2925) recorded; pricing pending confirmation.",
+    statusNotice: "Details Being Updated — Pricing Pending Confirmation",
+    supportsFacingPreference: false,
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in One by MSN at Neopolis Plot 1, Hyderabad. Please share the latest 4 BHK availability, pricing and site visit details.",
     projectOverview: {
       totalArea: "7.7 Acres",
       totalTowers: 5,
@@ -525,9 +607,10 @@ export const propertiesData: Property[] = [
       communityType: "Ultra-Luxury Apartments",
     },
     approvalInfo: {
-      status: "Pending Verification & Marketing Authorization",
-      note: "Details and marketing authorization must be verified before publishing.",
-      reraVerified: false,
+      status: "TG RERA No: P02400009393 • HMDA No: 011159/BP/HMDA/2925",
+      note: "TG RERA No: P02400009393 & HMDA No: 011159/BP/HMDA/2925 as stated on supplied MSN Realty creative. MAHA Properties acts as a registered real estate consultancy (TSRERA Agent Reg. No. A02500004914).",
+      reraVerified: true,
+      projectReraNumber: "P02400009393",
     },
     configurations: [
       {
@@ -535,48 +618,79 @@ export const propertiesData: Property[] = [
         name: "4 BHK Ultra-Luxury Residence",
         type: "4 BHK",
         sizeLabel: "5,250 – 7,460 sq.ft",
+        description: "Expansive 4 BHK residences ranging from 5,250 to 7,460 sq.ft with Osman Sagar lake views.",
       },
     ],
     description:
-      "Ultra-luxury 4 BHK apartment community at Neopolis Plot 1, Hyderabad featuring 5 towers of 55 floors across 7.7 acres with 655 residences, 1,80,000 sq.ft stated amenity space, and Osman Sagar lake views.",
+      "One by MSN is an ultra-luxury 4 BHK residential development at Neopolis Plot 1, Hyderabad. Spanning 7.7 acres with 5 towers rising 55 floors and 655 residences, the project offers 5,250–7,460 sq.ft homes, 1,80,000 sq.ft of stated amenity space, and views toward Osman Sagar Lake.",
     highlights: [
       "7.7 Acres • 5 Towers • 55 Floors • 655 Residences",
-      "5,250–7,460 sq.ft 4 BHK Residences",
+      "4 BHK Ultra-Luxury Residences (5,250–7,460 sq.ft)",
       "1,80,000 sq.ft stated amenity space",
-      "Osman Sagar lake views",
+      "Osman Sagar Lake Views",
+      "TG RERA No: P02400009393",
     ],
-    amenities: [],
-    images: [],
+    amenities: [
+      { name: "1,80,000 sq.ft Amenity Space", icon: "Building2" },
+      { name: "Osman Sagar Lake Views", icon: "Compass" },
+      { name: "Clubhouse & Lounge", icon: "Sparkles" },
+      { name: "Swimming Pool", icon: "Waves" },
+      { name: "24/7 Security", icon: "ShieldCheck" },
+    ],
+    locationConnectivity: {
+      distanceNote: "Situated at Neopolis Plot 1, Kokapet, Hyderabad.",
+      points: [
+        "Prime Plot 1 location in Neopolis, Kokapet",
+        "Overlooking Osman Sagar Lake corridor",
+        "Direct connectivity to ORR, Financial District & HITEC City",
+      ],
+      mapQuery: "Neopolis+Kokapet+Hyderabad",
+      locationUrl: "https://www.google.com/maps/search/?api=1&query=Neopolis+Kokapet+Hyderabad",
+    },
+    images: [
+      {
+        src: "/properties/one-by-msn/one-by-msn-hero.jpg",
+        alt: "One by MSN Neopolis Plot 1 Hyderabad 4 BHK ultra-luxury towers",
+        caption: "One by MSN — 4 BHK Residences (5,250–7,460 sq.ft) at Neopolis Plot 1",
+        category: "hero",
+      },
+    ],
     createdAt: "2026-11-12",
   },
 
   // =========================================================================
-  // 7. RAJAPUSHPA SKYRA (UNPUBLISHED CANDIDATE)
+  // 7. RAJAPUSHPA SKYRA
   // =========================================================================
   {
     id: "MP-RP-SKY-07",
     slug: "rajapushpa-skyra",
     name: "Rajapushpa Skyra",
     title: "Rajapushpa Skyra",
+    subtitle: "Residential Apartments by Rajapushpa Properties",
     developerName: "Rajapushpa Properties",
     propertyType: "apartments",
     type: "apartments",
-    typeLabel: "Luxury Apartments",
+    typeLabel: "Residential Apartments",
     location: "Hyderabad",
     locationArea: "Hyderabad",
     address: "Hyderabad, Telangana",
     bhkOptions: [],
-    priceDisplay: "Pending Confirmation",
+    priceDisplay: "Price on Request",
+    published: true,
     featured: false,
-    published: false,
     verificationStatus:
-      "Unpublished candidate: client shared brochure and price sheet reference; specifications, pricing, images, and availability awaiting confirmation.",
+      "Project Details Being Updated — Brochure/price sheet reference shared; specifications, pricing, images, and availability awaiting confirmation.",
+    statusNotice: "Project Details Being Updated",
+    supportsFacingPreference: false,
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in Rajapushpa Skyra. Please share the latest project details, pricing, availability and site visit details.",
     approvalInfo: {
-      status: "Unpublished Candidate",
-      note: "Awaiting verified project specifications and marketing approval.",
+      status: "Project Details Being Updated",
+      note: "Project specifications, sizes, and RERA details are currently being updated. Contact MAHA Properties (TSRERA Agent Reg. No. A02500004914) for the latest verified information.",
       reraVerified: false,
     },
-    description: "Unpublished project candidate pending verified specifications and assets.",
+    description:
+      "Rajapushpa Skyra is a residential apartment project by Rajapushpa Properties. Project details, configurations, pricing, and visual assets are currently being updated. Connect with MAHA Properties directly for the latest confirmed availability and project documentation.",
     highlights: [],
     amenities: [],
     images: [],
@@ -584,13 +698,14 @@ export const propertiesData: Property[] = [
   },
 
   // =========================================================================
-  // 8. RAJAPUSHPA CASA LUXURA (UNPUBLISHED CANDIDATE)
+  // 8. RAJAPUSHPA CASA LUXURA
   // =========================================================================
   {
     id: "MP-RP-CAS-08",
     slug: "rajapushpa-casa-luxura",
     name: "Rajapushpa Casa Luxura",
     title: "Rajapushpa Casa Luxura",
+    subtitle: "Luxury Residential Project by Rajapushpa Properties",
     developerName: "Rajapushpa Properties",
     propertyType: "apartments",
     type: "apartments",
@@ -599,17 +714,22 @@ export const propertiesData: Property[] = [
     locationArea: "Hyderabad",
     address: "Hyderabad, Telangana",
     bhkOptions: [],
-    priceDisplay: "Pending Confirmation",
+    priceDisplay: "Price on Request",
+    published: true,
     featured: false,
-    published: false,
     verificationStatus:
-      "Unpublished candidate: client shared brochure and price sheet reference; specifications, pricing, images, and availability awaiting confirmation.",
+      "Additional Project Information Coming Soon — Brochure/price sheet reference shared; specifications, pricing, images, and availability awaiting confirmation.",
+    statusNotice: "Additional Project Information Coming Soon",
+    supportsFacingPreference: false,
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in Rajapushpa Casa Luxura. Please share the latest project details, pricing, availability and site visit details.",
     approvalInfo: {
-      status: "Unpublished Candidate",
-      note: "Awaiting verified project specifications and marketing approval.",
+      status: "Additional Project Information Coming Soon",
+      note: "Additional project information, unit sizes, and RERA details are coming soon. Contact MAHA Properties (TSRERA Agent Reg. No. A02500004914) for verified updates.",
       reraVerified: false,
     },
-    description: "Unpublished project candidate pending verified specifications and assets.",
+    description:
+      "Rajapushpa Casa Luxura is a luxury residential development by Rajapushpa Properties. Additional project information, configurations, pricing, and photographs are coming soon. Reach out to MAHA Properties for confirmed availability and guidance.",
     highlights: [],
     amenities: [],
     images: [],
@@ -617,32 +737,38 @@ export const propertiesData: Property[] = [
   },
 
   // =========================================================================
-  // 9. PRESTIGE PROJECT — UNPUBLISHED CANDIDATE
+  // 9. PRESTIGE RESIDENTIAL PROJECT
   // =========================================================================
   {
     id: "MP-PRS-09",
     slug: "prestige-project-candidate",
-    name: "Prestige Project (Name Pending Confirmation)",
-    title: "Prestige Project (Name Pending Confirmation)",
+    name: "Prestige Residential Project",
+    title: "Prestige Residential Project",
+    subtitle: "Upcoming Residential Project by Prestige Group — Project Information Being Updated",
     developerName: "Prestige Group",
     propertyType: "apartments",
     type: "apartments",
-    typeLabel: "Residential Project",
+    typeLabel: "Residential Apartments",
     location: "Hyderabad",
     locationArea: "Hyderabad",
     address: "Hyderabad, Telangana",
     bhkOptions: [],
-    priceDisplay: "Pending Confirmation",
+    priceDisplay: "Price on Request",
+    published: true,
     featured: false,
-    published: false,
     verificationStatus:
-      "Unpublished candidate: exact public project name and details need confirmation before publishing.",
+      "Project Information Being Updated — Exact public project name, location, configurations, pricing, and assets awaiting confirmation.",
+    statusNotice: "Project Information Being Updated",
+    supportsFacingPreference: false,
+    whatsappMessage:
+      "Hello MAHA Properties, I am interested in the Prestige Residential Project. Please share the latest confirmed project details, availability and site visit information.",
     approvalInfo: {
-      status: "Unpublished Candidate",
-      note: "Exact public project name and details pending confirmation.",
+      status: "Project Information Being Updated",
+      note: "Official public project name, location, configurations, and approval details are currently being updated. Contact MAHA Properties (TSRERA Agent Reg. No. A02500004914) for verified updates.",
       reraVerified: false,
     },
-    description: "Unpublished project candidate pending public project name and detail confirmation.",
+    description:
+      "Prestige Residential Project is an upcoming residential offering by Prestige Group. Project information, including official project name, location, configurations, pricing, and photography, is currently being updated.",
     highlights: [],
     amenities: [],
     images: [],
@@ -658,10 +784,6 @@ export function getPublishedProperties(): Property[] {
   return propertiesData.filter((p) => p.published);
 }
 
-export function getUnpublishedProperties(): Property[] {
-  return propertiesData.filter((p) => !p.published);
-}
-
 export function getFeaturedProperties(): Property[] {
   return propertiesData.filter((p) => p.featured && p.published);
 }
@@ -672,12 +794,18 @@ export function getPropertyBySlug(slug: string): Property | undefined {
 
 export function getFilterOptions() {
   const published = getPublishedProperties();
-  const locations = Array.from(new Set(published.map((p) => p.locationArea))).sort();
+  const locations = Array.from(
+    new Set(published.map((p) => p.locationArea).filter((loc) => loc !== "Hyderabad"))
+  ).sort();
   const bhkSet = new Set<string>();
   published.forEach((p) => p.bhkOptions.forEach((b) => bhkSet.add(b)));
   const bhkOptions = Array.from(bhkSet);
   const statuses = Array.from(
-    new Set(published.map((p) => p.constructionStatus).filter((s): s is NonNullable<typeof s> => Boolean(s)))
+    new Set(
+      published
+        .map((p) => p.constructionStatus)
+        .filter((s): s is NonNullable<typeof s> => Boolean(s))
+    )
   );
   const propertyTypes = Array.from(new Set(published.map((p) => p.propertyType)));
 

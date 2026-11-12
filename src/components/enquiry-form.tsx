@@ -49,6 +49,7 @@ export function EnquiryForm({
   const [preparedUrl, setPreparedUrl] = useState<string | null>(null);
 
   const showFacing = Boolean(activeProperty?.supportsFacingPreference);
+  const facingChoices = activeProperty?.facingOptions || ["East Facing", "West Facing"];
   const configOptions = activeProperty?.configurations || [];
 
   const validate = () => {
@@ -72,9 +73,12 @@ export function EnquiryForm({
     if (!validate()) return;
 
     const projectName = activeProperty?.name || propertyTitle || "Hyderabad Residential Property";
+    const introLine =
+      activeProperty?.whatsappMessage ||
+      `Hello MAHA Properties, I am interested in ${projectName}. Please share the latest pricing, availability and site visit details.`;
 
     const lines = [
-      `Hello MAHA Properties, I am interested in ${projectName}. Please share the latest pricing, availability and site visit details.`,
+      introLine,
       "",
       `Name: ${formData.name.trim()}`,
       `Mobile: ${formData.phone.trim()}`,
@@ -291,9 +295,11 @@ export function EnquiryForm({
                   className="w-full px-3.5 py-3 rounded-xl border border-[#E5DFD3] text-sm text-[#171C26] bg-white focus:outline-none focus:border-[#C9A25B]"
                 >
                   <option value="">No Preference</option>
-                  <option value="East Facing">East Facing</option>
-                  <option value="West Facing">West Facing</option>
-                  <option value="Either Facing">Either Facing</option>
+                  {facingChoices.map((f) => (
+                    <option key={f} value={f}>
+                      {f}
+                    </option>
+                  ))}
                 </select>
               </div>
             )}
