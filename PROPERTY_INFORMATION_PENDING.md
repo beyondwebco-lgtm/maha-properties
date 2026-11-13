@@ -68,7 +68,7 @@ This internal tracker lists all 9 published properties and documents which field
 | Location | Confirmed | Neopolis, Hyderabad |
 | Configurations | Confirmed | 3 & 4 Bedroom Residences; 5 & 6 Bedroom Sky Duplexes |
 | Apartment Sizes | Missing | Official sq.ft dimensions per configuration pending |
-| Starting Price | Pending Confirmation | Previously shared ₹4.90 Cr onwards; current pricing pending reconfirmation |
+| Starting Price | Confirmed | Starting from ₹4.90 Cr onwards (Festive Spot Booking Benefit) |
 | Construction Status | Confirmed | Under Construction |
 | Possession Date | Missing | Official possession date pending |
 | Project RERA Number | Confirmed | TG RERA No: P02400009142 |

@@ -225,6 +225,7 @@ export function PropertiesCatalogue() {
                 <option value="">Any Budget</option>
                 <option value="under-1cr">Under ₹1 Cr (Confirmed Base)</option>
                 <option value="1cr-3cr">₹1 Cr – ₹3 Cr (Confirmed Base)</option>
+                <option value="above-3cr">Above ₹3 Cr (Confirmed Base)</option>
                 <option value="price-on-request">Price on Request</option>
               </select>
             </div>
