@@ -104,14 +104,14 @@ This internal tracker lists all 9 published properties and documents which field
 | :--- | :--- | :--- |
 | Official Project Name | Confirmed | One by MSN |
 | Location | Confirmed | Neopolis Plot 1, Hyderabad |
-| Configurations | Confirmed | 4 BHK |
+| Configurations | Confirmed | 4 BHK (655 Uber-Luxury Residences) |
 | Apartment Sizes | Confirmed | 5,250 – 7,460 sq.ft |
-| Starting Price | Missing | Official pricing pending confirmation |
-| Construction Status | Confirmed | New Launch |
+| Starting Price | Missing | Official pricing pending confirmation (Price on Request) |
+| Construction Status | Confirmed | New Launch (55 Floors, 5 Iconic Towers; 3 Towers Connected by a Sky Bridge) |
 | Possession Date | Missing | Official possession date pending |
 | Project RERA Number | Confirmed | TG RERA No: P02400009393 (HMDA No: 011159/BP/HMDA/2925) |
-| Amenities | Confirmed | 1,80,000 sq.ft Amenity Space, Osman Sagar Lake Views |
-| Exterior Images | Confirmed | `public/properties/one-by-msn/one-by-msn-hero.jpg` |
+| Amenities | Confirmed | 1,80,000 sq.ft across Clubhouse, Stilt & Sky Park; Sky Bridge; Osman Sagar Lake Views |
+| Exterior Images | Confirmed | `public/properties/one-by-msn/one-by-msn-hero.jpg`, `public/properties/one-by-msn/one-by-msn-lakeview.jpg` |
 | Interior Images | Missing | Official interior renders pending |
 | Floor Plans | Missing | Official 4 BHK floor plans pending |
 | Location Map Link | Confirmed | Neopolis Plot 1, Kokapet, Hyderabad |
