@@ -11,7 +11,7 @@ This internal tracker lists all 9 published properties and documents which field
 | Location | Confirmed | Chandanagar, near Gangaram Lake, Hyderabad |
 | Configurations | Confirmed | 2 BHK (West Facing), 3 BHK (East & West Facing) |
 | Apartment Sizes | Confirmed | 2 BHK: 1,270 sq.ft; 3 BHK: 1,590–1,980 sq.ft |
-| Starting Price | Confirmed | ₹6,999 / sq.ft (from client chat; older flyers differ) |
+| Starting Price | Confirmed | ₹7,200 / sq.ft (updated base rate) |
 | Construction Status | Confirmed | Ready to Move |
 | Possession Date | Confirmed | Ready to Move |
 | Project RERA Number | Pending Confirmation | Advertised as HMDA & RERA approved; exact RERA number pending |
@@ -172,3 +172,4 @@ This internal tracker lists all 9 published properties and documents which field
 | Interior Images | Missing | Official interior photographs pending |
 | Floor Plans | Missing | Official floor plans pending |
 | Location Map Link | Missing | Exact project coordinates/address pending |
+

@@ -52,7 +52,7 @@ export function PriceCalculator({
   const availableFacings = selectedConfig.facings;
 
   // Pricing constants (provided by client)
-  const BASE_RATE = 6999; // ₹/sq.ft
+  const BASE_RATE = 7200; // ₹/sq.ft
   const EAST_PREMIUM_RATE = 100; // ₹/sq.ft
   const CORNER_PREMIUM_RATE = 100; // ₹/sq.ft
   const CORPUS_FUND_RATE = 50; // ₹/sq.ft (for 2 years)
@@ -142,7 +142,7 @@ Facing: ${facing}
 Corner Unit: ${isCorner ? "Yes" : "No"}
 
 *Itemized Estimate:*
-• Base Price (₹6,999/sq.ft): ${formatINR(calculations.basePrice)}
+• Base Price (₹7,200/sq.ft): ${formatINR(calculations.basePrice)}
 • Facing Premium: ${calculations.facingPremium > 0 ? formatINR(calculations.facingPremium) : "₹0"}
 • Corner Premium: ${calculations.cornerPremium > 0 ? formatINR(calculations.cornerPremium) : "₹0"}
 • Floor Rising Charge: ${calculations.floorRisingCharges > 0 ? formatINR(calculations.floorRisingCharges) : "₹0"}
@@ -176,7 +176,7 @@ Please share availability, floor plans, and the final payment schedule.`;
             </div>
           </div>
           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40">
-            Base: ₹6,999 / sq.ft
+            Base: ₹7,200 / sq.ft
           </span>
         </div>
       </div>

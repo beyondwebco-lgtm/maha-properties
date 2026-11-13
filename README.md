@@ -24,7 +24,7 @@ A modern, fast, production-ready real estate web application built for **MAHA PR
 
 3. **Interactive Price Estimator:**
    - Configurable live calculator based on client pricing rules:
-     - Base rate: ₹6,999 / sq.ft
+     - Base rate: ₹7,200 / sq.ft
      - Amenities charge: ₹7,00,000 (2 BHK) / ₹8,00,000 (3 BHK)
      - Floor rising: ₹25 / sq.ft (from 5th floor)
      - East facing premium: ₹100 / sq.ft
