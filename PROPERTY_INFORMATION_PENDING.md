@@ -112,7 +112,7 @@ This internal tracker documents the verification and publishing status of all 9 
 | Starting Price | Unlisted (Policy) | Replaced with "Contact MAHA Properties for Pricing & Availability" |
 | Construction Status | Confirmed | New Launch (Approx. 7.7 Acres, 5 Towers, 55 Floors, 3 Towers Connected by a Sky Bridge) |
 | Possession Date | Missing | Official possession date pending |
-| Project RERA Number | Awaiting Verification | Discrepancy noted in public materials (`P02400009393` vs `P02400007203`). Withheld until official Telangana RERA verification to ensure regulatory accuracy. |
+| Project RERA Number | Confirmed | TG RERA No: P02400009393 • HMDA Permission No: 011159/BP/HMDA/2925 |
 | Amenities | Confirmed | Approx. 1,80,000 sq.ft across Clubhouse, Stilt & Sky Park; Sky Bridge; Osman Sagar Lake Views; Swimming Pools; Fitness & Wellness |
 | Exterior Images | Confirmed | `public/properties/one-by-msn/one-by-msn-hero.jpg`, `public/properties/one-by-msn/one-by-msn-lakeview.jpg` |
 | Interior Images | Missing | Official interior renders pending |
@@ -125,18 +125,18 @@ This internal tracker documents the verification and publishing status of all 9 
 | Field | Status | Notes |
 | :--- | :--- | :--- |
 | Official Project Name | Confirmed | Rajapushpa Skyra |
-| Location | Confirmed | Neopolis, Kokapet, Gandipet, Hyderabad, Telangana 500075 |
+| Location | Confirmed | Plot No. 7, Survey No. 239 and 240, Neopolis, Kokapet, Gandipet, Hyderabad, Telangana 500075 |
 | Configurations | Confirmed | 3 BHK and 4 BHK |
-| Apartment Sizes | Confirmed | 3,140 – 5,235 sq.ft (3 BHK: 3,140–4,115 sq.ft; 4 BHK: 4,400–5,235 sq.ft) |
+| Apartment Sizes | Confirmed | 3,140 – 5,350 sq.ft (3 BHK: 3,140–4,115 sq.ft; 4 BHK: 4,400–5,350 sq.ft) |
 | Starting Price | Unlisted (Policy) | Replaced with "Contact MAHA Properties for Pricing & Availability" |
 | Construction Status | Confirmed | Under Construction (Approx. 6.5 Acres, 3 Towers, G+55 Floors) |
 | Possession Date | Missing | Official possession timeline pending |
-| Project RERA Number | Confirmed | TG RERA No: P02400009520 |
-| Amenities | Confirmed | Approx. 60,000 sq.ft Clubhouse, 30,000 sq.ft Stilt Amenities, 25,000 sq.ft Sky Amenities, Sky Cinema, Amphitheatre, Mini Golf, Sky Gardens |
-| Exterior Images | Awaited | Neutral placeholder displayed until developer photography is authorized |
+| Project RERA Number | Confirmed | TG RERA No: P02400009520 • Building Permission: 013585/BP/HMDA/3693/SKP/2024 |
+| Amenities | Confirmed | Approx. 60,000 sq.ft Clubhouse, 30,000 sq.ft Stilt Amenities, 25,000 sq.ft Sky Amenities, Sky Cinema, Amphitheatre, Mini Golf, Sky Fitness, Sky Yoga Deck |
+| Exterior Images | Confirmed | Supplied in `public/properties/rajapushpa-skyra/` (5 verified project images) |
 | Interior Images | Missing | Official interior renders pending |
 | Floor Plans | Missing | Official unit floor plans pending |
-| Location Map Link | Confirmed | Neopolis, Kokapet, Gandipet, Hyderabad |
+| Location Map Link | Confirmed | Plot No. 7, Neopolis, Kokapet, Gandipet, Hyderabad |
 
 ---
 
@@ -144,18 +144,18 @@ This internal tracker documents the verification and publishing status of all 9 
 | Field | Status | Notes |
 | :--- | :--- | :--- |
 | Official Project Name | Confirmed | Rajapushpa Casa Luxura |
-| Location | Confirmed | Neopolis, Kokapet, Hyderabad, Telangana 500075 |
+| Location | Confirmed | Plot No. 2, Survey No. 239/P and 240/P, Neopolis, Kokapet, Gandipet, Hyderabad, Telangana 500075 |
 | Configurations | Confirmed | 4 BHK Palatial Residences |
 | Apartment Sizes | Confirmed | 5,735 – 7,790 sq.ft |
 | Starting Price | Unlisted (Policy) | Replaced with "Contact MAHA Properties for Pricing & Availability" |
 | Construction Status | Confirmed | Under Construction (Approx. 7.7 Acres, 5 Towers, ~50 Floors) |
 | Possession Date | Missing | Official possession timeline pending |
-| Project RERA Number | Confirmed | TG RERA No: P02400007302 |
-| Amenities | Confirmed | Approx. 60,000 sq.ft Clubhouse, Swimming Pools, Sky Leisure Areas, Fitness & Wellness, Sports Courts, Landscaped Gardens |
-| Exterior Images | Awaited | Neutral placeholder displayed until developer photography is authorized |
-| Interior Images | Missing | Official interior renders pending |
+| Project RERA Number | Confirmed | TG RERA No: P02400007302 • HMDA Approval: 3164/SKP/Plg/HMDA/2023 |
+| Amenities | Confirmed | Approx. 60,000 sq.ft Clubhouse, Infinity Pool, Temperature-Controlled Indoor Pool, Spa, Squash/Badminton Courts, Banquet Hall, Guest Suites |
+| Exterior Images | Confirmed | Supplied in `public/properties/rajapushpa-casa-luxura/` (5 exterior & amenity images) |
+| Interior Images | Confirmed | Supplied in `public/properties/rajapushpa-casa-luxura/casa-interior.jpg` |
 | Floor Plans | Missing | Official unit floor plans pending |
-| Location Map Link | Confirmed | Neopolis, Kokapet, Hyderabad |
+| Location Map Link | Confirmed | Plot No. 2, Neopolis, Kokapet, Gandipet, Hyderabad |
 
 ---
 

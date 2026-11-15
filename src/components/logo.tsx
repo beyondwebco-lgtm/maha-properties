@@ -36,7 +36,7 @@ export function MahaLogo({
         src={logoSrc}
         alt="MAHA PROPERTIES"
         width={180}
-        height={116}
+        height={123}
         priority
         className={`${heightClasses} object-contain transition-opacity duration-200 group-hover:opacity-95`}
       />

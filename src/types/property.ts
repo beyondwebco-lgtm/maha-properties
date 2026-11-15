@@ -67,6 +67,8 @@ export interface Property {
   supportsFacingPreference?: boolean;
   facingOptions?: string[];
   whatsappMessage?: string;
+  seoTitle?: string;
+  seoDescription?: string;
 
   towerPricing?: {
     tower: string;
@@ -85,6 +87,7 @@ export interface Property {
     totalUnits?: number;
     communityType?: string;
     possession?: string;
+    clubhouseArea?: string;
   };
 
   approvalInfo: {

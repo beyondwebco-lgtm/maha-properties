@@ -92,8 +92,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `${property.name} in ${property.location} | MAHA Properties Hyderabad`;
-  const description = `Explore ${property.name} in ${property.location}, including residential configurations, amenities, project highlights and location details. Contact MAHA Properties for enquiries and site visits.`;
+  const title = property.seoTitle || `${property.name} in ${property.location} | MAHA Properties Hyderabad`;
+  const description = property.seoDescription || `Explore ${property.name} in ${property.location}, including residential configurations, amenities, project highlights and location details. Contact MAHA Properties for enquiries and site visits.`;
   const ogImage = property.images[0]?.src || "/properties/chandanagar/project-img-1.jpg";
 
   return {
@@ -370,6 +370,17 @@ export default async function PropertyDetailPage({ params }: Props) {
                     </span>
                   </div>
                 )}
+
+                {property.projectOverview?.clubhouseArea && (
+                  <div className="p-4 rounded-2xl bg-[#F7F2E9]/60 border border-[#E5DFD3]/70 col-span-2 sm:col-span-1">
+                    <span className="text-[11px] uppercase tracking-wider text-[#747B86] font-semibold block">
+                      Clubhouse & Amenities
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold text-[#0B1630] mt-1 block">
+                      {property.projectOverview.clubhouseArea}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -489,27 +500,27 @@ export default async function PropertyDetailPage({ params }: Props) {
             {/* Pricing & Availability Dedicated Banner */}
             <div className="p-6 sm:p-8 rounded-3xl bg-[#0B1630] text-white border border-[#C9A25B]/40 space-y-4">
               <span className="text-xs uppercase tracking-widest text-[#C9A25B] font-bold block">
-                Pricing & Availability
+                Interested in This Property?
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold">
-                Contact MAHA Properties for Pricing & Availability
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                Contact MAHA Properties for Pricing &amp; Availability
               </h2>
               <p className="text-sm text-gray-300 leading-relaxed max-w-2xl">
-                All pricing, detailed cost sheets, payment milestones, and current unit availability are shared exclusively through MAHA Properties. Connect with our registered property consultant for verified project details, floor plans, and private site visit arrangements.
+                Explore the available residences, request the latest project information, and schedule a personalized site visit with MAHA Properties.
               </p>
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href="#enquiry-section"
-                  className="px-6 py-3 rounded-full bg-[#C9A25B] hover:bg-[#B08B45] text-[#0B1630] text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="px-6 py-3 rounded-full bg-[#C9A25B] hover:bg-[#B08B45] text-[#0B1630] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
                 >
                   Enquire Now
                 </a>
                 <a
-                  href="#enquiry-section"
+                  href={`tel:${companyData.primaryPhone}`}
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-colors"
                 >
-                  <Calendar className="w-4 h-4 text-[#C9A25B]" />
-                  <span>Schedule a Site Visit</span>
+                  <Phone className="w-4 h-4 text-[#C9A25B]" />
+                  <span>Call Now</span>
                 </a>
                 <a
                   href={whatsappUrl}
@@ -518,7 +529,14 @@ export default async function PropertyDetailPage({ params }: Props) {
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>WhatsApp MAHA Properties</span>
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href="#enquiry-section"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-colors"
+                >
+                  <Calendar className="w-4 h-4 text-[#C9A25B]" />
+                  <span>Schedule Site Visit</span>
                 </a>
               </div>
             </div>
