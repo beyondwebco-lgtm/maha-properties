@@ -73,9 +73,10 @@ export function EnquiryForm({
     if (!validate()) return;
 
     const projectName = activeProperty?.name || propertyTitle || "Hyderabad Residential Property";
+    const projectLocation = activeProperty?.location || "Hyderabad";
     const introLine =
       activeProperty?.whatsappMessage ||
-      `Hello MAHA Properties, I am interested in ${projectName}. Please share the latest pricing, availability and site visit details.`;
+      `Hello MAHA Properties, I am interested in ${projectName} located in ${projectLocation}. Please share the latest availability, pricing details, and site visit information.`;
 
     const lines = [
       introLine,
@@ -273,7 +274,7 @@ export function EnquiryForm({
               <input
                 id="enquiry-budget"
                 type="text"
-                placeholder="e.g. ₹90 Lakhs – ₹1.5 Cr"
+                placeholder="e.g. Preferred investment budget"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl border border-[#E5DFD3] text-sm text-[#171C26] placeholder-gray-400 focus:outline-none focus:border-[#C9A25B]"

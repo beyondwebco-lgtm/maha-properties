@@ -108,22 +108,15 @@ export function PropertyCard({ property }: PropertyCardProps) {
           </p>
         </div>
 
-        {/* Price & Dual CTAs */}
+        {/* Pricing & Availability CTA */}
         <div className="pt-3 border-t border-[#E5DFD3]/70 space-y-3">
-          <div className="space-y-0.5">
-            <div className="flex items-baseline justify-between">
-              <span className="text-[11px] text-[#747B86] font-medium uppercase tracking-wider">
-                {property.startingPrice || property.pricePerSqFt ? "Indicative Price" : "Pricing"}
-              </span>
-              <span className="text-base font-bold text-[#0B1630]">
-                {property.priceDisplay}
-              </span>
-            </div>
-            {property.priceDisclaimer && (
-              <p className="text-[10px] text-[#747B86] text-right">
-                {property.priceDisclaimer}
-              </p>
-            )}
+          <div className="space-y-1">
+            <span className="text-[11px] text-[#747B86] font-medium uppercase tracking-wider block">
+              Pricing & Availability
+            </span>
+            <span className="text-xs sm:text-sm font-semibold text-[#0B1630] block leading-snug">
+              Contact MAHA Properties for Pricing & Availability
+            </span>
           </div>
 
           <div className="grid grid-cols-2 gap-2.5">

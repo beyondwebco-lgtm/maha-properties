@@ -11,14 +11,12 @@ export function PropertiesCatalogue() {
   const initialCategory = searchParams.get("category") || "";
   const initialLocation = searchParams.get("location") || "";
   const initialBhk = searchParams.get("bhk") || "";
-  const initialBudget = searchParams.get("budget") || "";
   const initialStatus = searchParams.get("status") || "";
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedLocation, setSelectedLocation] = useState<string>(initialLocation);
   const [selectedBhk, setSelectedBhk] = useState<string>(initialBhk);
-  const [selectedBudget, setSelectedBudget] = useState<string>(initialBudget);
   const [selectedStatus, setSelectedStatus] = useState<string>(initialStatus);
 
   const publishedProperties = useMemo(() => getPublishedProperties(), []);
@@ -55,20 +53,6 @@ export function PropertiesCatalogue() {
         if (!matchesBhk) return false;
       }
 
-      if (selectedBudget) {
-        if (selectedBudget === "under-1cr") {
-          if (!prop.startingPrice || prop.startingPrice >= 10000000) return false;
-        } else if (selectedBudget === "1cr-3cr") {
-          if (!prop.startingPrice || prop.startingPrice < 10000000 || prop.startingPrice > 30000000) {
-            return false;
-          }
-        } else if (selectedBudget === "above-3cr") {
-          if (!prop.startingPrice || prop.startingPrice <= 30000000) return false;
-        } else if (selectedBudget === "price-on-request") {
-          if (prop.startingPrice !== undefined) return false;
-        }
-      }
-
       if (selectedStatus && prop.constructionStatus !== selectedStatus) {
         return false;
       }
@@ -81,7 +65,6 @@ export function PropertiesCatalogue() {
     selectedCategory,
     selectedLocation,
     selectedBhk,
-    selectedBudget,
     selectedStatus,
   ]);
 
@@ -90,7 +73,6 @@ export function PropertiesCatalogue() {
     setSelectedCategory("");
     setSelectedLocation("");
     setSelectedBhk("");
-    setSelectedBudget("");
     setSelectedStatus("");
   };
 
@@ -99,7 +81,6 @@ export function PropertiesCatalogue() {
       selectedCategory ||
       selectedLocation ||
       selectedBhk ||
-      selectedBudget ||
       selectedStatus
   );
 
@@ -173,7 +154,7 @@ export function PropertiesCatalogue() {
           </div>
 
           {/* Multi-filter Selectors */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-[#E5DFD3]/70">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-[#E5DFD3]/70">
             <div>
               <label htmlFor="location-filter" className="block text-[11px] font-bold text-[#747B86] uppercase mb-1">
                 Location
@@ -209,24 +190,6 @@ export function PropertiesCatalogue() {
                     {bhk}
                   </option>
                 ))}
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="budget-filter" className="block text-[11px] font-bold text-[#747B86] uppercase mb-1">
-                Budget
-              </label>
-              <select
-                id="budget-filter"
-                value={selectedBudget}
-                onChange={(e) => setSelectedBudget(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-[#E5DFD3] text-xs text-[#171C26] bg-white focus:outline-none focus:border-[#C9A25B]"
-              >
-                <option value="">Any Budget</option>
-                <option value="under-1cr">Under ₹1 Cr (Confirmed Base)</option>
-                <option value="1cr-3cr">₹1 Cr – ₹3 Cr (Confirmed Base)</option>
-                <option value="above-3cr">Above ₹3 Cr (Confirmed Base)</option>
-                <option value="price-on-request">Price on Request</option>
               </select>
             </div>
 

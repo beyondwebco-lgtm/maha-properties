@@ -54,7 +54,7 @@ export interface Property {
   bhkOptions: string[]; // e.g. ["2 BHK", "3 BHK"]
   sizeRange?: string; // Only when confirmed
   startingPrice?: number; // Only when confirmed, in INR
-  priceDisplay: string; // e.g. "₹6,999 / sq.ft*" or "Starting from ₹1.85 Cr*" or "Price on Request"
+  priceDisplay: string; // e.g. "Contact MAHA Properties for Pricing & Availability"
   priceDisclaimer?: string;
   priceUnit?: string; // e.g. "per sq.ft" or "total"
   pricePerSqFt?: number;

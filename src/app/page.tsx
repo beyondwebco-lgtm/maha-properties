@@ -138,24 +138,6 @@ export default function HomePage() {
               </select>
             </div>
 
-            {/* Budget Range */}
-            <div>
-              <label htmlFor="home-budget" className="block text-[11px] font-bold uppercase tracking-wider text-[#747B86] mb-1">
-                Budget Range
-              </label>
-              <select
-                id="home-budget"
-                name="budget"
-                className="w-full px-3 py-2.5 rounded-xl border border-[#E5DFD3] text-xs sm:text-sm text-[#171C26] bg-[#F7F2E9]/40 focus:outline-none focus:border-[#C9A25B]"
-              >
-                <option value="">Any Budget</option>
-                <option value="under-1cr">Under ₹1 Cr</option>
-                <option value="1cr-3cr">₹1 Cr – ₹3 Cr</option>
-                <option value="above-3cr">Above ₹3 Cr</option>
-                <option value="price-on-request">Price on Request</option>
-              </select>
-            </div>
-
             {/* Construction Status */}
             <div>
               <label htmlFor="home-status" className="block text-[11px] font-bold uppercase tracking-wider text-[#747B86] mb-1">
